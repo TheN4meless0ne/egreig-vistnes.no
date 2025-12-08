@@ -1,4 +1,5 @@
 import HeroImage from "./components/heroImage";
+import { CardGrid2x2 } from "./components/cardGrids/2x2";
 
 export default function Home() {
   return (
@@ -10,6 +11,10 @@ export default function Home() {
             alt="Sunset at Vistvik beach"
             title="Elias Greig-Vistnes"
             subtitle="Subtitle"
+          />
+          <CardGrid2x2 
+            heading="Heading"
+            subheading="Subheading"
           />
         </div>
       </main>
