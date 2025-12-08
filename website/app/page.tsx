@@ -1,5 +1,6 @@
 import HeroImage from "./components/heroImage";
 import { CardGrid2x2 } from "./components/cardGrids/2x2";
+import PanelImage from "./components/panelImage";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
             heading="Heading"
             subheading="Subheading"
           />
+          <PanelImage />
         </div>
       </main>
     </div>

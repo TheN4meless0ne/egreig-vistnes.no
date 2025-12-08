@@ -1,9 +1,5 @@
 import CircleAlert from "../../parts/icon/alert";
-
-type FilterDims = {
-    title: string;
-    body: string;
-};
+import type { FilterDims } from "../../../types/filters";
 
 export default function Card({ title, body }: FilterDims) {
     return (

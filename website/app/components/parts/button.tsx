@@ -1,9 +1,5 @@
 import Link from "next/link";
-
-type FilterDims = {
-    name: string;
-    destination: string;
-};
+import type { FilterDims } from "../../types/filters";
 
 export default function NavButton({ name, destination }: FilterDims) {
     return (
