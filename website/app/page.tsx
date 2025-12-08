@@ -9,8 +9,11 @@ export default function Home() {
             src="/sunset.png"
             alt="Sunset at Vistvik beach"
             title="Elias Greig-Vistnes"
-            subtitle="Subtitle"
+            subtitle="IT Trainee at Cegal Norway"
           />
+        </div>
+        <div className="">
+          
         </div>
       </main>
     </div>
