@@ -1,7 +1,4 @@
-type FilterDims = {
-    src: string;
-    alt: string;
-};
+import type { FilterDims } from "../types/filters";
 
 export default function Image({ src, alt }: FilterDims) {
   return (

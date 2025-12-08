@@ -1,8 +1,4 @@
-type FilterDims = {
-    id: string;
-    width: number;
-    height: number;
-};
+import type { FilterDims } from "../../types/filters";
 
 export default function InnerShadowFilter({ id, width, height }: FilterDims) {
     return (

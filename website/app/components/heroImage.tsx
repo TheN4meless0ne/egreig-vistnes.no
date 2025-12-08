@@ -1,11 +1,5 @@
 import Image from "./image";
-
-type FilterDims = {
-    src: string;
-    alt: string;
-    title: string;
-    subtitle: string;
-};
+import type { FilterDims } from "../types/filters";
 
 export default function HeroImage({ src, alt, title, subtitle }: FilterDims) {
     return (
