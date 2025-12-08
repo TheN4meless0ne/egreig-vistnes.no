@@ -18,6 +18,8 @@ export default function Home() {
             subheading="Subheading"
           />
           <PanelImage 
+            src="https://placehold.co/426x320"
+            alt="Placeholder Image"
             heading="Heading"
             subheading="Subheading"
             body1="Body text for your whole article or post. We’ll put in some lorem ipsum to show how a filled-out page might look:"

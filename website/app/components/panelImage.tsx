@@ -1,10 +1,10 @@
 import Image from "./image";
 import type { FilterDims } from "../types/filters";
 
-export default function PanelImage({ heading, subheading, body1, body2 }: FilterDims) {
+export default function PanelImage({ src, alt, heading, subheading, body1, body2 }: FilterDims) {
     return (
         <div className="w-full max-w-[1200px] px-4 py-8 inline-flex justify-start items-center gap-12">
-            <Image alt="Panel Image" src="https://placehold.co/426x320" />
+            <Image alt={alt} src={src} />
             <div className="h-80 min-w-72 inline-flex flex-col justify-start items-start gap-6">
                 <div className="self-stretch flex flex-col justify-start items-start gap-2">
                     <div className="self-stretch justify-start text-2xl font-semibold leading-7">{heading}</div>
