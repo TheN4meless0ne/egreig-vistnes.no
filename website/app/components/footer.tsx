@@ -1,19 +1,24 @@
 import Link from "next/link";
 import Logo from "./logo";
+import LinkedInIcon from "./parts/icon/linkedin";
+import GithubIcon from "./parts/icon/github";
+import InstagramIcon from "./parts/icon/instagram";
+import XLogoIcon from "./parts/icon/xLogo";
+import YouTubeIcon from "./parts/icon/youtube";
 
 export default function Footer() {
     return (
         <div className="grid grid-cols-3 px-25 span-2 flex justify-end items-center pt-5">
-            <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 pb-15">
+            <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 pb-15 gap-y-4">
                 <div>
                     <Logo />
                 </div>
-                <div className="grid grid-cols-5 gap-x-2">
-                    <div>01</div>
-                    <div>02</div>
-                    <div>03</div>
-                    <div>04</div>
-                    <div>05</div>
+                <div className="grid grid-cols-5 gap-x-2 max-w-50">
+                    <div><Link href="https://www.linkedin.com/in/egreig-vistnes"><LinkedInIcon /></Link></div>
+                    <div><Link href="https://github.com/TheN4meless0ne"><GithubIcon /></Link></div>
+                    <div><Link href="https://www.instagram.com/egreigvistnes"><InstagramIcon /></Link></div>
+                    <div><Link href="https://x.com/thenmelessne"><XLogoIcon /></Link></div>
+                    <div><Link href="https://www.youtube.com/@then4meless0ne"><YouTubeIcon /></Link></div>
                 </div>
             </div>
             <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 gap-y-4">
