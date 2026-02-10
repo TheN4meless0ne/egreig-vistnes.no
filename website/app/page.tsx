@@ -11,10 +11,10 @@ export default function Home() {
             src="/sunset.png"
             alt="Sunset at Vistvik beach"
             title="Elias Greig-Vistnes"
-            subtitle="Subtitle"
+            subtitle="IT Apprentice at Cegal Norway"
           />
           <CardGrid2x2 
-            heading="Heading"
+            heading="Projects"
             subheading="Subheading"
           />
           <PanelImage 
