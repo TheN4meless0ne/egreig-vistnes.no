@@ -10,7 +10,7 @@ export default function CircleAlert() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="lucide lucide-circle-alert-icon lucide-circle-alert"
+            className="lucide lucide-circle-alert-icon lucide-circle-alert text-foreground"
         >
             <circle cx="12" cy="12" r="10" />
             <line x1="12" x2="12" y1="8" y2="12" />
