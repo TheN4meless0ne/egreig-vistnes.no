@@ -1,4 +1,4 @@
-import { Card } from "./parts/card";
+import { Card } from "./parts/cards";
 import type { FilterDims } from "../../types/filters";
 
 export function CardGrid2x2({ heading, subheading }: FilterDims) {

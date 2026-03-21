@@ -5,7 +5,7 @@ import NavButton from "./parts/button";
 
 export default function NavBar() {
     return (
-        <nav className="flex w-full items-center gap-6 flex-wrap md:px-64">
+        <nav className="flex w-full items-center gap-6 flex-wrap">
             <Link href="/"><Logo /></Link>
             <div className="flex-1 flex justify-center items-start gap-2">
                 <NavBarButtons />
