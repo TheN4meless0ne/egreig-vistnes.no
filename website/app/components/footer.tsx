@@ -8,8 +8,8 @@ import YouTubeIcon from "./parts/icon/youtube";
 
 export default function Footer() {
     return (
-        <div className="grid grid-cols-3 px-25 span-2 flex justify-end items-center pt-5">
-            <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 pb-15 gap-y-4">
+        <div className="grid grid-cols-3 items-center w-full px-8 md:px-64">
+            <div className="grid grid-row-2 ml-4 pb-15 gap-y-4">
                 <div>
                     <Link href="/"><Logo /></Link>
                 </div>
@@ -21,7 +21,7 @@ export default function Footer() {
                     <div><Link href="https://www.youtube.com/@then4meless0ne"><YouTubeIcon /></Link></div>
                 </div>
             </div>
-            <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 gap-y-4">
+            <div className="grid grid-row-2 ml-4 gap-y-4">
                 <div>
                     <p className="font-bold">Explore</p>
                 </div>
@@ -32,7 +32,7 @@ export default function Footer() {
                     <div><Link href="/contact" className="hover:underline">Contact</Link></div>
                 </div>
             </div>
-            <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 gap-y-4">
+            <div className="grid grid-row-2 ml-4 gap-y-4">
                 <div>
                     <p className="font-bold">Resources</p>
                 </div>

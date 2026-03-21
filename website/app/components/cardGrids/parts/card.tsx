@@ -1,16 +1,34 @@
 import CircleAlert from "../../parts/icon/alert";
 import type { FilterDims } from "../../../types/filters";
 
-export default function Card({ title, body }: FilterDims) {
+export { Card };
+
+function Card({ title, body }: FilterDims) {
     return (
-        <div className="self-stretch self-stretch min-w-60 inline-flex justify-start items-start gap-4 flex-wrap content-start">
-            <div className="w-6 h-6 relative overflow-hidden">
+        <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start">
+            <div className="w-6 h-6">
                 <CircleAlert />
             </div>
-            <div className="flex-1 min-w-40 inline-flex flex-col justify-start items-start gap-4">
+            <div className="flex-1 inline-flex flex-col">
                 <div className="self-stretch flex flex-col justify-start items-start gap-2">
-                    <div className="self-stretch justify-start text-Text-Default-Default text-2xl font-semibold leading-7">{title}</div>
-                    <div className="self-stretch justify-start text-Text-Default-Secondary text-base font-normal leading-6">{body}</div>
+                    <div className="text-2xl font-semibold">{title}</div>
+                    <div>{body}</div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function projectCard ({ title, body }: FilterDims) {
+    return (
+        <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start">
+            <div className="w-6 h-6">
+                <CircleAlert />
+            </div>
+            <div className="flex-1 inline-flex flex-col">
+                <div className="self-stretch flex flex-col justify-start items-start gap-2">
+                    <div className="text-2xl font-semibold">{title}</div>
+                    <div>{body}</div>
                 </div>
             </div>
         </div>

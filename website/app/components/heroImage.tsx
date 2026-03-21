@@ -5,9 +5,9 @@ export default function HeroImage({ src, alt, title, subtitle }: FilterDims) {
     return (
         <span className="relative">
             <Image alt={alt} src={src} />
-            <div className="absolute inset-0 flex flex-col justify-center items-center gap-2 text-white">
-                <div className="self-stretch text-center justify-start text-7xl font-bold leading-[86.40px]">{title}</div>
-                <div className="self-stretch text-center justify-center text-3xl font-normal leading-10">{subtitle}</div>
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white md:gap-2">
+                <h1 className="text-center justify-start font-bold text-3xl md:text-7xl">{title}</h1>
+                <p className="text-center justify-center md:text-3xl">{subtitle}</p>
             </div>
         </span>
     );

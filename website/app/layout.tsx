@@ -28,9 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col`}>
-        <div className="w-full border-b flex items-center gap-6 px-12 py-6 flex-wrap"><NavBar /></div>
+        <div className="border-b items-center gap-6 px-16 py-6 flex-wrap"><NavBar /></div>
         {children}
-        <footer className="w-full border-t mt-auto flex items-center gap-6 px-12 py-6 flex-wrap"><Footer /></footer>
+        <footer className="border-t py-6 flex-wrap"><Footer /></footer>
       </body>
     </html>
   );

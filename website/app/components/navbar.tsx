@@ -5,9 +5,9 @@ import NavButton from "./parts/button";
 
 export default function NavBar() {
     return (
-        <nav className="flex w-full items-center gap-6 flex-wrap">
+        <nav className="flex w-full items-center gap-6 flex-wrap md:px-64">
             <Link href="/"><Logo /></Link>
-            <div className="flex-1 flex justify-center items-start gap-2 flex-wrap content-start">
+            <div className="flex-1 flex justify-center items-start gap-2">
                 <NavBarButtons />
             </div>
             <SearchBar />
@@ -17,7 +17,7 @@ export default function NavBar() {
 
 function NavBarButtons() {
     return (
-        <div className="self-stretch inline-flex justify-center items-start gap-2 flex-wrap content-start">
+        <div className="flex flex-wrap items-center gap-6">
             <NavButton name="Home" destination="/" />
             <NavButton name="Portfolio" destination="/portfolio" />
             <NavButton name="Socials" destination="/socials" />
