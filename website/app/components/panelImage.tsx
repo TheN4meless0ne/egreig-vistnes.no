@@ -1,10 +1,10 @@
 import Image from "./image";
 import type { FilterDims } from "../types/filters";
 
-export default function PanelImage({ src, alt, heading, subheading, body1, body2 }: FilterDims) {
+export default function PanelImage({ image, alt, heading, subheading, body1, body2 }: FilterDims) {
     return (
         <div className="flex flex-col lg:flex-row px-6 md:px-10 lg:px-16 py-8 gap-8 lg:gap-12">
-            <Image alt={alt} src={src} />
+            <Image alt={alt} src={image} />
             <div className="flex flex-col gap-6">
                 <div>
                     <div className="text-2xl font-semibold">{heading}</div>
