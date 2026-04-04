@@ -1,9 +1,13 @@
 import CircleAlert from "../../parts/icon/alert";
-import type { FilterDims } from "../../../types/filters";
 
 export { Card };
 
-function Card({ title, body }: FilterDims) {
+type CardProps = {
+    title: string;
+    body: string;
+};
+
+function Card({ title, body }: CardProps) {
     return (
         <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start">
             <div className="w-6 h-6">
@@ -19,7 +23,7 @@ function Card({ title, body }: FilterDims) {
     );
 }
 
-function projectCard ({ title, body }: FilterDims) {
+function projectCard ({ title, body }: CardProps) {
     return (
         <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start">
             <div className="w-6 h-6">

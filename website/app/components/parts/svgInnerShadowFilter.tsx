@@ -1,6 +1,10 @@
-import type { FilterDims } from "../../types/filters";
+type InnerShadowFilterProps = {
+    id: string;
+    width: number;
+    height: number;
+};
 
-export default function InnerShadowFilter({ id, width, height }: FilterDims) {
+export default function InnerShadowFilter({ id, width, height }: InnerShadowFilterProps) {
     return (
         <filter
             id={id}

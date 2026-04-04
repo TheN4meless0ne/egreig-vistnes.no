@@ -1,7 +1,15 @@
-import Image from "./image";
-import type { FilterDims } from "../types/filters";
+import Image from "./parts/image";
 
-export default function PanelImage({ image, alt, heading, subheading, body1, body2 }: FilterDims) {
+type PanelImageProps = {
+    image: string;
+    alt: string;
+    heading: string;
+    subheading: string;
+    body1: string;
+    body2: string;
+};
+
+export default function PanelImage({ image, alt, heading, subheading, body1, body2 }: PanelImageProps) {
     return (
         <div className="flex flex-col lg:flex-row px-6 md:px-10 lg:px-16 py-8 gap-8 lg:gap-12">
             <Image alt={alt} src={image} />

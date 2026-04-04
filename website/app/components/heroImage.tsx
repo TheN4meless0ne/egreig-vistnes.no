@@ -1,7 +1,13 @@
-import Image from "./image";
-import type { FilterDims } from "../types/filters";
+import Image from "./parts/image";
 
-export default function HeroImage({ image, alt, title, subtitle }: FilterDims) {
+type HeroImageProps = {
+    image: string;
+    alt: string;
+    title: string;
+    subtitle: string;
+};
+
+export default function HeroImage({ image, alt, title, subtitle }: HeroImageProps) {
     return (
         <span className="relative">
             <Image alt={alt} src={image} />
