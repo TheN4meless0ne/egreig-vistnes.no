@@ -8,7 +8,7 @@ export default function Home() {
             <main className="flex min-h-screen w-full flex-col items-center justify-between sm:items-start">
                 <div className="w-full inline-flex flex-col justify-center items-center gap-8">
                     <HeroImage
-                        src="/sunset.png"
+                        image="/sunset.png"
                         alt="Sunset at Vistvik beach"
                         title="Elias Greig-Vistnes"
                         subtitle="IT Apprentice at Cegal Norway"
@@ -19,7 +19,7 @@ export default function Home() {
                             subheading="Subheading"
                         />
                         <PanelImage
-                            src="https://placehold.co/520x390"
+                            image="https://placehold.co/520x335"
                             alt="Placeholder Image"
                             heading="Heading"
                             subheading="Subheading"
