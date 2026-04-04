@@ -1,8 +1,7 @@
 export default function DocsPage() {
     return (
-        <div>
-            <h1>Documentation</h1>
-            <p>Welcome to the documentation!</p>
-        </div>
+        <main className="flex min-h-screen items-center justify-center">
+            <h1 className="text-2xl font-semibold">Documents</h1>
+        </main>
     );
 }
