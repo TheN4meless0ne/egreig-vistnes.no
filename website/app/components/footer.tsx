@@ -1,10 +1,7 @@
 import Link from "next/link";
 import Logo from "./logo";
-import LinkedInIcon from "./parts/icon/linkedin";
-import GithubIcon from "./parts/icon/github";
-import InstagramIcon from "./parts/icon/instagram";
-import XLogoIcon from "./parts/icon/xLogo";
-import YouTubeIcon from "./parts/icon/youtube";
+
+import { IconButton, FooterLink } from "./parts/button";
 
 export default function Footer() {
     return (
@@ -14,11 +11,11 @@ export default function Footer() {
                     <Link href="/"><Logo /></Link>
                 </div>
                 <div className="grid grid-cols-5 gap-x-2 max-w-50">
-                    <div><Link href="https://www.linkedin.com/in/egreig-vistnes"><LinkedInIcon /></Link></div>
-                    <div><Link href="https://github.com/TheN4meless0ne"><GithubIcon /></Link></div>
-                    <div><Link href="https://www.instagram.com/egreigvistnes"><InstagramIcon /></Link></div>
-                    <div><Link href="https://x.com/thenmelessne"><XLogoIcon /></Link></div>
-                    <div><Link href="https://www.youtube.com/@then4meless0ne"><YouTubeIcon /></Link></div>
+                    <IconButton destination="https://www.linkedin.com/in/egreigvistnes/" icon="LinkedIn" />
+                    <IconButton destination="https://github.com/TheN4meless0ne" icon="Github" />
+                    <IconButton destination="https://www.instagram.com/egreigvistnes" icon="Instagram" />
+                    <IconButton destination="https://x.com/thenmelessne" icon="XLogo" />
+                    <IconButton destination="https://www.youtube.com/@then4meless0ne" icon="YouTube" />
                 </div>
             </div>
             <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 gap-y-4">
@@ -26,10 +23,10 @@ export default function Footer() {
                     <p className="font-bold">Explore</p>
                 </div>
                 <div className="grid grid-row-4 gap-y-2">
-                    <div><Link href="/portfolio" className="hover:underline">Portfolio</Link></div>
-                    <div><Link href="/socials" className="hover:underline">Socials</Link></div>
-                    <div><Link href="/resources" className="hover:underline">Resources</Link></div>
-                    <div><Link href="/contact" className="hover:underline">Contact</Link></div>
+                    <FooterLink name="Portfolio" destination="/portfolio" />
+                    <FooterLink name="Socials" destination="/socials" />
+                    <FooterLink name="Resources" destination="/resources" />
+                    <FooterLink name="Contact" destination="/contact" />
                 </div>
             </div>
             <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 gap-y-4">
@@ -37,10 +34,10 @@ export default function Footer() {
                     <p className="font-bold">Resources</p>
                 </div>
                 <div className="grid grid-row-4 gap-y-2">
-                    <div><Link href="/" className="hover:underline">Education</Link></div>
-                    <div><Link href="/" className="hover:underline">Work Experience</Link></div>
-                    <div><Link href="/" className="hover:underline">Certifications</Link></div>
-                    <div><Link href="/" className="hover:underline">Projects</Link></div>
+                    <FooterLink name="Education" destination="/" />
+                    <FooterLink name="Work Experience" destination="/" />
+                    <FooterLink name="Certifications" destination="/" />
+                    <FooterLink name="Projects" destination="/" />
                 </div>
             </div>
         </div>

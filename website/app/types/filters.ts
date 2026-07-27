@@ -20,4 +20,7 @@ export type FilterDims = {
     // For navigation links
     name: string;
     destination: string;
+
+    // For icons
+    icon: React.ReactNode;
 }

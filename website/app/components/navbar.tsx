@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "./logo";
 import SearchBar from "./parts/searchbar";
-import NavButton from "./parts/button";
+import { NavbarButton } from "./parts/button";
 
 export default function NavBar() {
     return (
@@ -18,11 +18,11 @@ export default function NavBar() {
 function NavBarButtons() {
     return (
         <div className="self-stretch inline-flex justify-center items-start gap-2 flex-wrap content-start">
-            <NavButton name="Home" destination="/" />
-            <NavButton name="Portfolio" destination="/portfolio" />
-            <NavButton name="Socials" destination="/socials" />
-            <NavButton name="Resources" destination="/resources" />
-            <NavButton name="Contact" destination="/contact" />
+            <NavbarButton name="Home" destination="/" />
+            <NavbarButton name="Portfolio" destination="/portfolio" />
+            <NavbarButton name="Socials" destination="/socials" />
+            <NavbarButton name="Resources" destination="/resources" />
+            <NavbarButton name="Contact" destination="/contact" />
         </div>
     );
 }
