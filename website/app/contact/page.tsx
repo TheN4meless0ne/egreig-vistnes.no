@@ -3,26 +3,28 @@ import { ContactCard } from "../components/cards/parts/cards";
 import MailIcon from "../components/parts/icon/mail";
 import { useState } from "react";
 
-const metadata = {
-    title: 'Contact',
-    description: 'Get in touch with me',
-}
+const MAX_MESSAGE_LENGTH = 2000;
 
 export default function ContactPage() {
     const [form, setForm] = useState({ name: "", email: "", message: "" });
     const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
     const [error, setError] = useState("");
-    
+
     function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
     }
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
+        if (form.message.length > MAX_MESSAGE_LENGTH) {
+            setError(`Message must be under ${MAX_MESSAGE_LENGTH} characters.`);
+            setStatus("error");
+            return;
+        }
         setStatus("sending");
         setError("");
         try {
-            const res = await fetch(`${process.env.BACKEND_URL}/api/contact`, {
+            const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
@@ -30,8 +32,9 @@ export default function ContactPage() {
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || "Something went wrong.");
             setStatus("sent");
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            const message = err instanceof Error ? err.message : "Something went wrong.";
+            setError(message);
             setStatus("error");
         }
     }
@@ -75,21 +78,22 @@ export default function ContactPage() {
                         ) : (
                             <form onSubmit={handleSubmit} className="flex flex-col gap-4 h-full">
                                 <div className="flex flex-col gap-1">
-                                    <label className="text-xs text-muted-foreground">Name</label>
-                                    <input name="name" type="text" placeholder="Your name"
+                                    <label htmlFor="name" className="text-xs text-muted-foreground">Name</label>
+                                    <input id="name" name="name" type="text" placeholder="Your name"
                                         value={form.name} onChange={handleChange} required
                                         className="text-sm bg-secondary border border-border rounded-lg px-3 py-2 outline-none focus:border-blue-500" />
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <label className="text-xs text-muted-foreground">Email</label>
-                                    <input name="email" type="email" placeholder="you@email.com"
+                                    <label htmlFor="email" className="text-xs text-muted-foreground">Email</label>
+                                    <input id="email" name="email" type="email" placeholder="you@email.com"
                                         value={form.email} onChange={handleChange} required
                                         className="text-sm bg-secondary border border-border rounded-lg px-3 py-2 outline-none focus:border-blue-500" />
                                 </div>
                                 <div className="flex flex-col gap-1 flex-1">
-                                    <label className="text-xs text-muted-foreground">Message</label>
-                                    <textarea name="message" placeholder="What's on your mind?"
+                                    <label htmlFor="message" className="text-xs text-muted-foreground">Message</label>
+                                    <textarea id="message" name="message" placeholder="What's on your mind?"
                                         value={form.message} onChange={handleChange} required
+                                        maxLength={MAX_MESSAGE_LENGTH}
                                         className="flex-1 resize-none text-sm bg-secondary border border-border rounded-lg px-3 py-2 outline-none focus:border-blue-500" />
                                 </div>
                                 {status === "error" && (
