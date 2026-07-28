@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "./parts/link";
 import Logo from "./logo";
 import LinkedInIcon from "./parts/icon/linkedin";
 import GithubIcon from "./parts/icon/github";
