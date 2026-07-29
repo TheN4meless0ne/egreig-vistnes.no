@@ -3,7 +3,10 @@ import type { NextConfig } from "next";
 const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
-  assetPrefix: isProd ? undefined : "/proxy/3000",
+  basePath: isProd ? undefined : "/absproxy/3000",
+  assetPrefix: isProd ? undefined : "/absproxy/3000",
+  allowedDevOrigins: ["code.egreig-vistnes.no"],
+  
   async rewrites() {
     return [
       {
