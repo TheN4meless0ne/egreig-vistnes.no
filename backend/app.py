@@ -5,11 +5,14 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 from search_routes import search_blueprint
 from email.message import EmailMessage
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 # Load environment variables
 load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.env'), override=True)
 
 app = Flask(__name__)
+limiter = Limiter(get_remote_address, app=app, default_limits=[])
 required_env = ["SMTP_USER", "SMTP_PASS", "CONTACT_EMAIL"]
 missing = [k for k in required_env if not os.getenv(k)]
 if missing:
@@ -33,6 +36,7 @@ CORS(app, resources={
 app.register_blueprint(search_blueprint)
 
 @app.route("/api/contact", methods=["POST"])
+@limiter.limit("5 per hour")
 def contact():
     data = request.get_json(silent=True)
     if not data:

@@ -2,6 +2,7 @@
 import { ContactCard } from "../components/cards/parts/cards";
 import MailIcon from "../components/parts/icon/mail";
 import { useState } from "react";
+import { CONTACT_EMAIL } from "../lib/config";
 
 const MAX_MESSAGE_LENGTH = 2000;
 
@@ -16,11 +17,6 @@ export default function ContactPage() {
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-        if (form.message.length > MAX_MESSAGE_LENGTH) {
-            setError(`Message must be under ${MAX_MESSAGE_LENGTH} characters.`);
-            setStatus("error");
-            return;
-        }
         setStatus("sending");
         setError("");
         try {
@@ -39,17 +35,23 @@ export default function ContactPage() {
         }
     }
 
+    function handleReset() {
+        setForm({ name: "", email: "", message: "" });
+        setStatus("idle");
+        setError("");
+    }
+
     return (
-        <main className="px-6 py-19 max-w-3/4 mx-auto">
+        <main className="flex-1 flex items-center px-6 py-10 mx-auto">
             <section className="bg-[color-mix(in_srgb,hsl(var(--secondary))_80%,#3b82f6_8%)] rounded-2xl p-10">
-                <div className="grid grid-cols-2 gap-8 items-stretch">
+                <div className="grid md:grid-cols-2 gap-8 items-stretch">
                     <div className="flex flex-col justify-between">
                         <div>
-                            <p className="text-[11px] uppercase tracking-widest font-mono text-muted-foreground mb-3">
+                            <p className="text-xs uppercase tracking-widest font-mono mb-3">
                                 Contact
                             </p>
                             <h1 className="text-3xl font-light mb-2">Let's talk</h1>
-                            <p className="text-muted-foreground text-sm leading-relaxed">
+                            <p className="text-sm leading-relaxed">
                                 Have a question or want to work together?
                                 Drop me a message and I'll get back to you soon.
                             </p>
@@ -59,7 +61,7 @@ export default function ContactPage() {
                                 icon={MailIcon}
                                 label="Email"
                                 link="mailto"
-                                value={process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? ""}
+                                value={CONTACT_EMAIL}
                             />
                         </div>
                     </div>
@@ -67,9 +69,9 @@ export default function ContactPage() {
                         {status === "sent" ? (
                             <div className="flex flex-col items-center justify-center h-full gap-3 text-center">
                                 <p className="text-sm font-medium">Message sent!</p>
-                                <p className="text-xs text-muted-foreground">I'll get back to you soon.</p>
+                                <p className="text-xs">I'll get back to you soon.</p>
                                 <button
-                                    onClick={() => { setForm({ name: "", email: "", message: "" }); setStatus("idle"); }}
+                                    onClick={handleReset}
                                     className="text-xs text-blue-600 underline underline-offset-2"
                                 >
                                     Send another
@@ -78,19 +80,19 @@ export default function ContactPage() {
                         ) : (
                             <form onSubmit={handleSubmit} className="flex flex-col gap-4 h-full">
                                 <div className="flex flex-col gap-1">
-                                    <label htmlFor="name" className="text-xs text-muted-foreground">Name</label>
+                                    <label htmlFor="name" className="text-xs">Name</label>
                                     <input id="name" name="name" type="text" placeholder="Your name"
                                         value={form.name} onChange={handleChange} required
                                         className="text-sm bg-secondary border border-border rounded-lg px-3 py-2 outline-none focus:border-blue-500" />
                                 </div>
                                 <div className="flex flex-col gap-1">
-                                    <label htmlFor="email" className="text-xs text-muted-foreground">Email</label>
+                                    <label htmlFor="email" className="text-xs">Email</label>
                                     <input id="email" name="email" type="email" placeholder="you@email.com"
                                         value={form.email} onChange={handleChange} required
                                         className="text-sm bg-secondary border border-border rounded-lg px-3 py-2 outline-none focus:border-blue-500" />
                                 </div>
                                 <div className="flex flex-col gap-1 flex-1">
-                                    <label htmlFor="message" className="text-xs text-muted-foreground">Message</label>
+                                    <label htmlFor="message" className="text-xs">Message</label>
                                     <textarea id="message" name="message" placeholder="What's on your mind?"
                                         value={form.message} onChange={handleChange} required
                                         maxLength={MAX_MESSAGE_LENGTH}
@@ -100,7 +102,7 @@ export default function ContactPage() {
                                     <p className="text-xs text-red-500">{error}</p>
                                 )}
                                 <button type="submit" disabled={status === "sending"}
-                                    className="self-start text-sm font-medium bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-lg px-5 py-2.5 transition-colors">
+                                    className="self-start text-sm font-medium bg-blue-300 hover:bg-blue-400 disabled:opacity-50 rounded-lg px-5 py-2.5 transition-colors">
                                     {status === "sending" ? "Sending…" : "Send message"}
                                 </button>
                             </form>
@@ -111,4 +113,3 @@ export default function ContactPage() {
         </main>
     );
 }
-
