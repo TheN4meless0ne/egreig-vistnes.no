@@ -44,7 +44,7 @@ export default function ContactPage() {
     return (
         <main className="flex-1 flex items-center px-6 py-10 mx-auto">
             <section className="bg-[color-mix(in_srgb,hsl(var(--secondary))_80%,#3b82f6_8%)] rounded-2xl p-10">
-                <div className="grid md:grid-cols-2 gap-8 items-stretch">
+                <div className="grid md:grid-cols-2 gap-8 items-stretch h-80">
                     <div className="flex flex-col justify-between">
                         <div>
                             <p className="text-xs uppercase tracking-widest font-mono mb-3">
