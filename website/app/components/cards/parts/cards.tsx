@@ -1,10 +1,14 @@
 import CircleAlert from "../../parts/icon/alert";
 
-export { Card };
+export { Card, ProjectCard, ContactCard };
 
 type CardProps = {
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     title: string;
     body: string;
+    link: string;
+    label: string;
+    value: string;
 };
 
 function Card({ title, body }: CardProps) {
@@ -23,7 +27,7 @@ function Card({ title, body }: CardProps) {
     );
 }
 
-function projectCard ({ title, body }: CardProps) {
+function ProjectCard ({ title, body }: CardProps) {
     return (
         <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start">
             <div className="w-6 h-6">
@@ -34,6 +38,20 @@ function projectCard ({ title, body }: CardProps) {
                     <div className="text-2xl font-semibold">{title}</div>
                     <div>{body}</div>
                 </div>
+            </div>
+        </div>
+    );
+}
+
+function ContactCard ({ icon: Icon, label, link, value }: CardProps) {
+    return (
+        <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start p-4">
+            <div className="py-3">
+                <Icon />
+            </div>
+            <div>
+                <h1 className="text-lg font-semibold">{label}</h1>
+                <a href={`${link}:${value}`} className="text-muted-foreground">{value}</a>
             </div>
         </div>
     );
