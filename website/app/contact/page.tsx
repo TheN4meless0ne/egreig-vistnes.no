@@ -42,9 +42,9 @@ export default function ContactPage() {
     }
 
     return (
-        <main className="flex-1 flex items-center px-6 py-10 mx-auto">
-            <section className="bg-[color-mix(in_srgb,hsl(var(--secondary))_80%,#3b82f6_8%)] rounded-2xl p-10">
-                <div className="grid md:grid-cols-2 gap-8 items-stretch h-80">
+        <main className="flex-1 flex items-center px-6 py-8">
+            <section className="rounded-2xl p-10">
+                <div className="grid md:grid-cols-2 gap-8 items-stretch md:h-80">
                     <div className="flex flex-col justify-between">
                         <div>
                             <p className="text-xs uppercase tracking-widest font-mono mb-3">
@@ -65,7 +65,7 @@ export default function ContactPage() {
                             />
                         </div>
                     </div>
-                    <div className="bg-background border border-border/40 rounded-xl p-6 flex flex-col gap-4">
+                    <div className="border border-border/40 rounded-xl p-6 flex flex-col gap-4">
                         {status === "sent" ? (
                             <div className="flex flex-col items-center justify-center h-full gap-3 text-center">
                                 <p className="text-sm font-medium">Message sent!</p>
