@@ -1,14 +1,14 @@
 import Link from "./parts/link";
 import Logo from "./logo";
-import LinkedInIcon from "./parts/icon/linkedin";
-import GithubIcon from "./parts/icon/github";
-import InstagramIcon from "./parts/icon/instagram";
-import XLogoIcon from "./parts/icon/xLogo";
-import YouTubeIcon from "./parts/icon/youtube";
+import LinkedInIcon from "./parts/icon/social/linkedin";
+import GithubIcon from "./parts/icon/social/github";
+import InstagramIcon from "./parts/icon/social/instagram";
+import XLogoIcon from "./parts/icon/social/xLogo";
+import YouTubeIcon from "./parts/icon/social/youtube";
 
 export default function Footer() {
     return (
-        <div className="grid grid-cols-3 items-center w-full px-8 md:px-64">
+        <div className="grid grid-cols-3 items-center w-full px-8 md:px-48">
             <div className="grid grid-row-2 ml-4 pb-15 gap-y-4">
                 <div>
                     <Link href="/"><Logo /></Link>

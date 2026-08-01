@@ -1,4 +1,4 @@
-import InnerShadowFilter from "../svgInnerShadowFilter";
+import InnerShadowFilter from "../../svgInnerShadowFilter";
 
 export default function Urus() {
     return (

@@ -1,6 +1,6 @@
-import Urus from "./parts/icon/urus";
-import Gebo from "./parts/icon/gebo";
-import Ewas from "./parts/icon/ewas";
+import Urus from "./parts/icon/rune/urus";
+import Gebo from "./parts/icon/rune/gebo";
+import Ewas from "./parts/icon/rune/ewas";
 
 export default function Logo() {
     return (

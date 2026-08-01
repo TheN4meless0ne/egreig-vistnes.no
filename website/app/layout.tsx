@@ -40,9 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <div className="border-b items-center gap-6 px-16 py-6 flex-wrap"><NavBar /></div>
-        {children}
+        <div className="flex-1 flex flex-col">{children}</div>
         <footer className="border-t py-6 flex-wrap"><Footer /></footer>
       </body>
     </html>
