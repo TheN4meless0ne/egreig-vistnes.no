@@ -1,5 +1,9 @@
-import Link from "next/link";
-import type { FilterDims } from "../../types/filters";
+import Link from "./link";
+
+type NavButtonProps = {
+    name: string;
+    destination: string;
+};
 
 import LinkedInIcon from "./icon/linkedin";
 import GithubIcon from "./icon/github";

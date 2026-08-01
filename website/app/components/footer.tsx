@@ -1,12 +1,12 @@
-import Link from "next/link";
+import Link from "./parts/link";
 import Logo from "./logo";
 
 import { IconButton, FooterLink } from "./parts/button";
 
 export default function Footer() {
     return (
-        <div className="grid grid-cols-3 px-25 span-2 flex justify-end items-center pt-5">
-            <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 pb-15 gap-y-4">
+        <div className="grid grid-cols-3 items-center w-full px-8 md:px-48">
+            <div className="grid grid-row-2 ml-4 pb-15 gap-y-4">
                 <div>
                     <Link href="/"><Logo /></Link>
                 </div>
@@ -18,7 +18,7 @@ export default function Footer() {
                     <IconButton destination="https://www.youtube.com/@then4meless0ne" icon="YouTube" />
                 </div>
             </div>
-            <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 gap-y-4">
+            <div className="grid grid-row-2 ml-4 gap-y-4">
                 <div>
                     <p className="font-bold">Explore</p>
                 </div>
@@ -29,7 +29,7 @@ export default function Footer() {
                     <FooterLink name="Contact" destination="/contact" />
                 </div>
             </div>
-            <div className="grid grid-row-2 ml-4 min-w-100 max-w-262 gap-y-4">
+            <div className="grid grid-row-2 ml-4 gap-y-4">
                 <div>
                     <p className="font-bold">Resources</p>
                 </div>

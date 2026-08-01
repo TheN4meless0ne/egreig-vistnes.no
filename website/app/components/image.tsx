@@ -1,6 +1,9 @@
-import type { FilterDims } from "../types/filters";
+type imageProps = {
+  src: string;
+  alt: string;
+};
 
-export default function Image({ src, alt }: FilterDims) {
+export default function Image({ src, alt }: imageProps) {
   return (
     <img
       src={src}

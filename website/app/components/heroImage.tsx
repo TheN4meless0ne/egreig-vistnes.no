@@ -1,13 +1,19 @@
-import Image from "./image";
-import type { FilterDims } from "../types/filters";
+import Image from "./parts/image";
 
-export default function HeroImage({ src, alt, title, subtitle }: FilterDims) {
+type HeroImageProps = {
+    image: string;
+    alt: string;
+    title: string;
+    subtitle: string;
+};
+
+export default function HeroImage({ image, alt, title, subtitle }: HeroImageProps) {
     return (
         <span className="relative">
-            <Image alt={alt} src={src} />
-            <div className="absolute inset-0 flex flex-col justify-center items-center gap-2 text-white">
-                <div className="self-stretch text-center justify-start text-7xl font-bold leading-[86.40px]">{title}</div>
-                <div className="self-stretch text-center justify-center text-3xl font-normal leading-10">{subtitle}</div>
+            <Image alt={alt} src={image} />
+            <div className="absolute inset-0 flex flex-col justify-center items-center text-white md:gap-2">
+                <h1 className="text-center justify-start font-bold text-3xl md:text-7xl">{title}</h1>
+                <p className="text-center justify-center md:text-3xl">{subtitle}</p>
             </div>
         </span>
     );
