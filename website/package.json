@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:proxy": "NEXT_PROXY_MODE=proxy next dev",
+    "dev:absproxy": "NEXT_PROXY_MODE=absproxy next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
