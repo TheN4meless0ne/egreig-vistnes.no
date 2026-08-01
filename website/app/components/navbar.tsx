@@ -10,7 +10,7 @@ export default function NavBar() {
             <div className="order-3 w-full md:order-2 md:flex-1 flex justify-center items-start gap-2">
                 <NavBarButtons />
             </div>
-            <div className="order-2 ml-auto w-full md:order-3 md:w-auto md:ml-0">
+            <div className="order-2 ml-auto md:order-3 md:w-auto md:ml-0">
                 <SearchBar />
             </div>
         </nav>

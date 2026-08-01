@@ -5,11 +5,11 @@ type NavButtonProps = {
     destination: string;
 };
 
-import LinkedInIcon from "./icon/linkedin";
-import GithubIcon from "./icon/github";
-import InstagramIcon from "./icon/instagram";
-import XLogoIcon from "./icon/xLogo";
-import YouTubeIcon from "./icon/youtube";
+import LinkedInIcon from "./icon/social/linkedin";
+import GithubIcon from "./icon/social/github";
+import InstagramIcon from "./icon//social/instagram";
+import XLogoIcon from "./icon/social/xLogo";
+import YouTubeIcon from "./icon/social/youtube";
 
 export function NavbarButton({ name, destination }: FilterDims) {
     return (
