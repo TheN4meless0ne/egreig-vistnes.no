@@ -10,7 +10,7 @@ export default function Footer() {
                 <div>
                     <Link href="/"><Logo /></Link>
                 </div>
-                <div className="grid grid-cols-5 gap-x-2 max-w-50">
+                <div className="grid grid-cols-3 md:grid-cols-5 gap-x-2 gap-y-2 max-w-50">
                     <IconButton destination="https://www.linkedin.com/in/egreigvistnes/" icon="LinkedIn" />
                     <IconButton destination="https://github.com/TheN4meless0ne" icon="Github" />
                     <IconButton destination="https://www.instagram.com/egreigvistnes" icon="Instagram" />
