@@ -3,14 +3,13 @@ import Link from "./parts/link";
 import Logo from "./logo";
 
 const ICON_LINKS = [
-    { icon: "LinkedIn", destination: "https://www.linkedin.com/in/egreigvistnes/" },
+    { icon: "LinkedIn", destination: "https://www.linkedin.com/in/egreig-vistnes/" },
     { icon: "Github", destination: "https://github.com/TheN4meless0ne" },
-    { icon: "XLogo", destination: "https://x.com/thenmelessne" },
-    { icon: "YouTube", destination: "https://www.youtube.com/@then4meless0ne" },
+    { icon: "XLogo", destination: "https://x.com/egreigvistnes" },
+    { icon: "YouTube", destination: "https://www.youtube.com/@egreig-vistnes" },
 ];
 
 const NAV_LINKS = [
-    { name: "Home", destination: "/" },
     { name: "Portfolio", destination: "/portfolio" },
     { name: "Socials", destination: "/socials" },
     { name: "Resources", destination: "/resources" },
@@ -31,7 +30,7 @@ export default function Footer() {
                 <div>
                     <Link href="/"><Logo /></Link>
                 </div>
-                <div className="grid grid-cols-3 md:grid-cols-5 gap-x-2 gap-y-2 max-w-50">
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-2 max-w-50">
                     {ICON_LINKS.map((link) => (
                         <IconButton key={link.icon} destination={link.destination} icon={link.icon} />
                     ))}
