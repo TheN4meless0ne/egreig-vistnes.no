@@ -16,11 +16,13 @@ type SearchItem = {
 type SearchBarProps = {
     placeholder?: string;
     onSubmit?: (query: string) => void;
+    autoFocus?: boolean;
 };
 
 export default function SearchBar({
     placeholder = "Search",
     onSubmit,
+    autoFocus = false,
 }: SearchBarProps) {
     const [query, setQuery] = useState("");
     const [isOpen, setIsOpen] = useState(false);
@@ -112,12 +114,13 @@ export default function SearchBar({
         <div ref={wrapperRef} className="relative w-full sm:w-auto">
             <form onSubmit={handleSubmit} className="inline-flex w-full sm:w-auto">
                 <div className="h-10 w-full sm:w-64 pl-3 pr-2 relative inline-flex justify-start items-center gap-2 border border-foreground/40 rounded-3xl bg-background">
-                    <div className="w-4 h-3.5 relative">
+                    <div className="w-4 h-4 shrink-0 relative">
                         <SearchIcon />
                     </div>
                     <input
                         aria-label="Search"
-                        className="flex-1 z-10 bg-transparent text-sm leading-4 focus:outline-none"
+                        autoFocus={autoFocus}
+                        className="flex-1 min-w-0 z-10 bg-transparent text-sm leading-4 focus:outline-none"
                         placeholder={placeholder}
                         value={query}
                         onFocus={() => setIsOpen(true)}

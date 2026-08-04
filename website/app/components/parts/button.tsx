@@ -1,29 +1,33 @@
 import Link from "./link";
 
+import LinkedInIcon from "./icon/social/linkedin";
+import GithubIcon from "./icon/social/github";
+import InstagramIcon from "./icon/social/instagram";
+import XLogoIcon from "./icon/social/xLogo";
+import YouTubeIcon from "./icon/social/youtube";
+
 type NavButtonProps = {
     name: string;
     destination: string;
 };
 
-import LinkedInIcon from "./icon/social/linkedin";
-import GithubIcon from "./icon/social/github";
-import InstagramIcon from "./icon//social/instagram";
-import XLogoIcon from "./icon/social/xLogo";
-import YouTubeIcon from "./icon/social/youtube";
+type IconButtonProps = {
+    destination: string;
+    icon: string;
+};
 
-export function NavbarButton({ name, destination }: FilterDims) {
+export function NavbarButton({ name, destination }: NavButtonProps) {
     return (
-        <button>
-            <div data-state="Active" className="p-2 rounded-lg inline-flex justify-center items-center gap-2 hover:bg-gray-100 dark:hover:bg-neutral-800 hover:cursor-pointer">
-                <Link href={destination} className="justify-center text-base font-normal leading-4">
-                    {name}
-                </Link>
-            </div>
-        </button>
+        <Link
+            href={destination}
+            className="p-2 rounded-lg inline-flex justify-center items-center gap-2 text-base font-normal leading-4 transition-colors hover:bg-foreground/10 active:bg-foreground/20 hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40"
+        >
+            {name}
+        </Link>
     );
 }
 
-export function IconButton({ destination, icon }: FilterDims) {
+export function IconButton({ destination, icon }: IconButtonProps) {
     const iconComponents: { [key: string]: React.ReactNode } = {
         LinkedIn: <LinkedInIcon />,
         Github: <GithubIcon />,
@@ -45,7 +49,7 @@ export function IconButton({ destination, icon }: FilterDims) {
     );
 }
 
-export function FooterLink({ name, destination }: FilterDims) {
+export function FooterLink({ name, destination }: NavButtonProps) {
     return (
         <Link href={destination} className="hover:underline">
             {name}

@@ -1,14 +1,14 @@
-type SearchIconProps = {
+type CloseIconProps = {
     size?: number;
 };
 
-export default function SearchIcon({ size = 16 }: SearchIconProps) {
+export default function CloseIcon({ size = 24 }: CloseIconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width={size}
             height={size}
-            viewBox="0 1 24 24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -16,10 +16,10 @@ export default function SearchIcon({ size = 16 }: SearchIconProps) {
             strokeLinejoin="round"
             aria-hidden="true"
             focusable="false"
-            className="lucide lucide-search-icon lucide-search text-foreground"
+            className="lucide lucide-x-icon lucide-x text-foreground"
         >
-            <path d="m21 21-4.34-4.34" />
-            <circle cx="11" cy="11" r="8" />
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
         </svg>
     );
 }

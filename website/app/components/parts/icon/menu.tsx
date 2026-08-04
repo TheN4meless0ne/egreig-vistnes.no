@@ -1,14 +1,14 @@
-type SearchIconProps = {
+type MenuIconProps = {
     size?: number;
 };
 
-export default function SearchIcon({ size = 16 }: SearchIconProps) {
+export default function MenuIcon({ size = 24 }: MenuIconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width={size}
             height={size}
-            viewBox="0 1 24 24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -16,10 +16,11 @@ export default function SearchIcon({ size = 16 }: SearchIconProps) {
             strokeLinejoin="round"
             aria-hidden="true"
             focusable="false"
-            className="lucide lucide-search-icon lucide-search text-foreground"
+            className="lucide lucide-menu-icon lucide-menu text-foreground"
         >
-            <path d="m21 21-4.34-4.34" />
-            <circle cx="11" cy="11" r="8" />
+            <path d="M4 6h16" />
+            <path d="M4 12h16" />
+            <path d="M4 18h16" />
         </svg>
     );
 }
