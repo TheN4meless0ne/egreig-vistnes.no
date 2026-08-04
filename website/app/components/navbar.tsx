@@ -19,14 +19,11 @@ const NAV_LINKS = [
 
 type Panel = "menu" | "search" | null;
 
-// Mirrors the hover/focus treatment on NavbarButton so the mobile controls
-// feel identical to the desktop links. Tailwind gates `hover:` behind
-// `@media (hover: hover)`, which is false on touch devices, so `active:`
-// carries the feedback there instead.
+// Mirrors the hover/focus on NavbarButton so the mobile controls feel like the desktop links.
 const iconButtonClass =
     "md:hidden inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg transition-colors hover:bg-foreground/10 active:bg-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40";
 
-// Keeps the control highlighted for as long as its panel is open.
+// Keeps the control highlighted while its panel is open.
 const iconButtonOpenClass = "bg-foreground/10";
 
 function NavBarButtons() {
