@@ -4,9 +4,9 @@ export const metadata = {
 }
 
 export default function SocialsPage() {
-    return (
-        <main className="flex min-h-screen items-center justify-center">
-        <h1 className="text-2xl font-semibold">Socials</h1>
-        </main>
-    );
+  return (
+    <main className="flex items-center justify-center">
+      <h1 className="text-2xl font-semibold">Socials</h1>
+    </main>
+  );
 }
