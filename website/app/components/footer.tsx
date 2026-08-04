@@ -1,7 +1,28 @@
+import { IconButton, FooterLink } from "./parts/button";
 import Link from "./parts/link";
 import Logo from "./logo";
 
-import { IconButton, FooterLink } from "./parts/button";
+const ICON_LINKS = [
+    { icon: "LinkedIn", destination: "https://www.linkedin.com/in/egreigvistnes/" },
+    { icon: "Github", destination: "https://github.com/TheN4meless0ne" },
+    { icon: "XLogo", destination: "https://x.com/thenmelessne" },
+    { icon: "YouTube", destination: "https://www.youtube.com/@then4meless0ne" },
+];
+
+const NAV_LINKS = [
+    { name: "Home", destination: "/" },
+    { name: "Portfolio", destination: "/portfolio" },
+    { name: "Socials", destination: "/socials" },
+    { name: "Resources", destination: "/resources" },
+    { name: "Contact", destination: "/contact" },
+];
+
+const RESOURCE_LINKS = [
+    { name: "Education", destination: "/" },
+    { name: "Work Experience", destination: "/" },
+    { name: "Certifications", destination: "/" },
+    { name: "Projects", destination: "/" },
+];
 
 export default function Footer() {
     return (
@@ -11,11 +32,9 @@ export default function Footer() {
                     <Link href="/"><Logo /></Link>
                 </div>
                 <div className="grid grid-cols-3 md:grid-cols-5 gap-x-2 gap-y-2 max-w-50">
-                    <IconButton destination="https://www.linkedin.com/in/egreigvistnes/" icon="LinkedIn" />
-                    <IconButton destination="https://github.com/TheN4meless0ne" icon="Github" />
-                    <IconButton destination="https://www.instagram.com/egreigvistnes" icon="Instagram" />
-                    <IconButton destination="https://x.com/thenmelessne" icon="XLogo" />
-                    <IconButton destination="https://www.youtube.com/@then4meless0ne" icon="YouTube" />
+                    {ICON_LINKS.map((link) => (
+                        <IconButton key={link.icon} destination={link.destination} icon={link.icon} />
+                    ))}
                 </div>
             </div>
             <div className="grid grid-row-2 ml-4 gap-y-4">
@@ -23,10 +42,9 @@ export default function Footer() {
                     <p className="font-bold">Explore</p>
                 </div>
                 <div className="grid grid-row-4 gap-y-2">
-                    <FooterLink name="Portfolio" destination="/portfolio" />
-                    <FooterLink name="Socials" destination="/socials" />
-                    <FooterLink name="Resources" destination="/resources" />
-                    <FooterLink name="Contact" destination="/contact" />
+                    {NAV_LINKS.map((item) => (
+                        <FooterLink key={item.destination} name={item.name} destination={item.destination} />
+                    ))}
                 </div>
             </div>
             <div className="grid grid-row-2 ml-4 gap-y-4">
@@ -34,10 +52,9 @@ export default function Footer() {
                     <p className="font-bold">Resources</p>
                 </div>
                 <div className="grid grid-row-4 gap-y-2">
-                    <FooterLink name="Education" destination="/" />
-                    <FooterLink name="Work Experience" destination="/" />
-                    <FooterLink name="Certifications" destination="/" />
-                    <FooterLink name="Projects" destination="/" />
+                    {RESOURCE_LINKS.map((item) => (
+                        <FooterLink key={item.destination} name={item.name} destination={item.destination} />
+                    ))}
                 </div>
             </div>
         </div>
