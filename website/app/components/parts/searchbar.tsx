@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import SearchIcon from "./icon/search";
+import Link, { resolveHref } from "./link";
 
 import { searchBarProps, searchItem } from "../../types/filters";
 
@@ -12,6 +12,7 @@ export default function SearchBar({
     placeholder = "Search",
     onSubmit,
     autoFocus = false,
+    onNavigate,
 }: searchBarProps) {
     const [query, setQuery] = useState("");
     const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +77,8 @@ export default function SearchBar({
     const handleResultSelect = (href: string) => {
         setQuery("");
         setIsOpen(false);
-        router.push(href);
+        onNavigate?.();
+        router.push(resolveHref(href));
     };
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -133,11 +135,12 @@ export default function SearchBar({
                                 <li key={item.href}>
                                     <Link
                                         href={item.href}
-                                        onClick={(event) => {
-                                            event.preventDefault();
-                                            handleResultSelect(item.href);
+                                        onClick={() => {
+                                            setQuery("");
+                                            setIsOpen(false);
+                                            onNavigate?.();
                                         }}
-                                        className="block rounded-lg px-3 py-2 transition-colors hover:bg-foreground/10"
+                                        className="block rounded-lg px-3 py-2 transition-colors hover:bg-foreground/10 active:bg-foreground/20"
                                     >
                                         <div className="text-sm font-medium">{item.title}</div>
                                         <div className="text-xs opacity-80">{item.description}</div>

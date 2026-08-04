@@ -29,7 +29,7 @@ export default async function Footer() {
 
     return (
         <div className="grid grid-cols-3 items-center w-full px-8 md:px-48">
-            <div className="grid grid-row-2 ml-4 pb-15 gap-y-4">
+            <div className="grid grid-row-3 ml-4 pb-15 gap-y-4">
                 <div>
                     <Link href="/"><Logo /></Link>
                 </div>

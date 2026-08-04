@@ -56,10 +56,15 @@ export type searchBarProps = {
     placeholder?: string;
     onSubmit?: (query: string) => void;
     autoFocus?: boolean;
+    /** Fired when a result is followed, so a containing panel can close itself. */
+    onNavigate?: () => void;
 };
 
 export type linkProps = {
     href: string;
     className?: string;
     children: React.ReactNode;
+    /** Set false on links that are unlikely to be followed, to skip prefetching. */
+    prefetch?: boolean;
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };

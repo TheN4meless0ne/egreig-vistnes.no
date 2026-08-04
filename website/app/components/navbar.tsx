@@ -39,6 +39,10 @@ export default function NavBar() {
     const [panel, setPanel] = useState<Panel>(null);
     const navRef = useRef<HTMLElement>(null);
 
+    // Navigation is client-side now, so the navbar stays mounted across routes
+    // and an open panel has to be closed explicitly when a link is followed.
+    const close = () => setPanel(null);
+
     const toggle = (next: Exclude<Panel, null>) =>
         setPanel((current) => (current === next ? null : next));
 
@@ -129,7 +133,7 @@ export default function NavBar() {
 
             {panel === "search" && (
                 <div id="mobile-search" className="md:hidden mt-3">
-                    <SearchBar autoFocus />
+                    <SearchBar autoFocus onNavigate={close} />
                 </div>
             )}
 
@@ -143,6 +147,7 @@ export default function NavBar() {
                             <li key={item.destination}>
                                 <Link
                                     href={item.destination}
+                                    onClick={close}
                                     className="block rounded-lg px-3 py-2.5 text-base leading-5 transition-colors hover:bg-foreground/10 active:bg-foreground/20"
                                 >
                                     {item.name}
