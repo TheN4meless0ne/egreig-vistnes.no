@@ -1,6 +1,7 @@
 import { IconButton, FooterLink } from "./parts/button";
 import Link from "./parts/link";
 import Logo from "./logo";
+import { getTrademark } from "../lib/trademark";
 
 const ICON_LINKS = [
     { icon: "LinkedIn", destination: "https://www.linkedin.com/in/egreig-vistnes/" },
@@ -23,7 +24,9 @@ const RESOURCE_LINKS = [
     { name: "Projects", destination: "/" },
 ];
 
-export default function Footer() {
+export default async function Footer() {
+    const trademark = await getTrademark();
+
     return (
         <div className="grid grid-cols-3 items-center w-full px-8 md:px-48">
             <div className="grid grid-row-2 ml-4 pb-15 gap-y-4">
@@ -35,6 +38,7 @@ export default function Footer() {
                         <IconButton key={link.icon} destination={link.destination} icon={link.icon} />
                     ))}
                 </div>
+                <p className="text-xs text-gray-400">{trademark}</p>
             </div>
             <div className="grid grid-row-2 ml-4 gap-y-4">
                 <div>
