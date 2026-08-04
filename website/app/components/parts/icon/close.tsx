@@ -1,8 +1,6 @@
-type CloseIconProps = {
-    size?: number;
-};
+import { iconSizeProp } from "../../../types/filters";
 
-export default function CloseIcon({ size = 24 }: CloseIconProps) {
+export default function CloseIcon({ size = 24 }: iconSizeProp) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

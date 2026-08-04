@@ -1,8 +1,6 @@
-type MenuIconProps = {
-    size?: number;
-};
+import { iconSizeProp } from "../../../types/filters";
 
-export default function MenuIcon({ size = 24 }: MenuIconProps) {
+export default function MenuIcon({ size = 24 }: iconSizeProp) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

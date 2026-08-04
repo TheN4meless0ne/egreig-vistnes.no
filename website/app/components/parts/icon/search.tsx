@@ -1,8 +1,6 @@
-type SearchIconProps = {
-    size?: number;
-};
+import { iconSizeProp } from "../../../types/filters";
 
-export default function SearchIcon({ size = 16 }: SearchIconProps) {
+export default function SearchIcon({ size = 16 }: iconSizeProp) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

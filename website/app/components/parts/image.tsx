@@ -1,11 +1,8 @@
 const prefix = process.env.NEXT_PUBLIC_ASSET_PREFIX ?? '';
 
-type ImageProps = {
-    src: string;
-    alt: string;
-};
+import { imageProps } from "../../types/filters";
 
-export default function Image({ src, alt }: ImageProps) {
+export default function Image({ src, alt }: imageProps) {
   const resolvedSrc = src.startsWith('http://') || src.startsWith('https://') ? src : `${prefix}${src}`;
   return (
     <img

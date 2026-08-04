@@ -6,27 +6,16 @@ import type { FormEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import SearchIcon from "./icon/search";
 
-type SearchItem = {
-    title: string;
-    description: string;
-    href: string;
-    keywords: string[];
-};
-
-type SearchBarProps = {
-    placeholder?: string;
-    onSubmit?: (query: string) => void;
-    autoFocus?: boolean;
-};
+import { searchBarProps, searchItem } from "../../types/filters";
 
 export default function SearchBar({
     placeholder = "Search",
     onSubmit,
     autoFocus = false,
-}: SearchBarProps) {
+}: searchBarProps) {
     const [query, setQuery] = useState("");
     const [isOpen, setIsOpen] = useState(false);
-    const [results, setResults] = useState<SearchItem[]>([]);
+    const [results, setResults] = useState<searchItem[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [requestError, setRequestError] = useState<string | null>(null);
     const router = useRouter();
@@ -52,7 +41,7 @@ export default function SearchBar({
                     throw new Error(`Search request failed (${response.status})`);
                 }
 
-                const payload = (await response.json()) as { items?: SearchItem[] };
+                const payload = (await response.json()) as { items?: searchItem[] };
                 setResults(payload.items ?? []);
             } catch (error) {
                 if (error instanceof DOMException && error.name === "AbortError") {

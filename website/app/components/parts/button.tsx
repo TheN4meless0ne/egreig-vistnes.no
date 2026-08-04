@@ -6,17 +6,9 @@ import InstagramIcon from "./icon/social/instagram";
 import XLogoIcon from "./icon/social/xLogo";
 import YouTubeIcon from "./icon/social/youtube";
 
-type NavButtonProps = {
-    name: string;
-    destination: string;
-};
+import { navButtonProps, iconButtonProps } from "../../types/filters";
 
-type IconButtonProps = {
-    destination: string;
-    icon: string;
-};
-
-export function NavbarButton({ name, destination }: NavButtonProps) {
+export function NavbarButton({ name, destination }: navButtonProps) {
     return (
         <Link
             href={destination}
@@ -27,7 +19,7 @@ export function NavbarButton({ name, destination }: NavButtonProps) {
     );
 }
 
-export function IconButton({ destination, icon }: IconButtonProps) {
+export function IconButton({ destination, icon }: iconButtonProps) {
     const iconComponents: { [key: string]: React.ReactNode } = {
         LinkedIn: <LinkedInIcon />,
         Github: <GithubIcon />,
@@ -49,7 +41,7 @@ export function IconButton({ destination, icon }: IconButtonProps) {
     );
 }
 
-export function FooterLink({ name, destination }: NavButtonProps) {
+export function FooterLink({ name, destination }: navButtonProps) {
     return (
         <Link href={destination} className="hover:underline">
             {name}

@@ -1,7 +1,4 @@
-type imageProps = {
-  src: string;
-  alt: string;
-};
+import { imageProps } from "../types/filters";
 
 export default function Image({ src, alt }: imageProps) {
   return (

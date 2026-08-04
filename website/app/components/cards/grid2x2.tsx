@@ -1,11 +1,7 @@
+import { cardGrid2x2Props } from "../../types/filters";
 import { Card } from "./parts/cards";
 
-type CardGrid2x2Props = {
-    heading: string;
-    subheading: string;
-};
-
-export function CardGrid2x2({ heading, subheading }: CardGrid2x2Props) {
+export function CardGrid2x2({ heading, subheading }: cardGrid2x2Props) {
     return (
         <div className="w-full px-16 py-4">
             <div className="inline-flex flex-col justify-start items-start gap-2">
