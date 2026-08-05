@@ -24,41 +24,63 @@ const RESOURCE_LINKS = [
     { name: "Projects", destination: "/" },
 ];
 
+function IconLinks() {
+    return (
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-2 max-w-50">
+            {ICON_LINKS.map((item) => (
+                <IconButton key={item.icon} destination={item.destination} icon={item.icon} />
+            ))}
+        </div>
+    );
+}
+
+function ExploreLinks() {
+    return (
+        <div className="grid grid-row-4 gap-y-2">
+            {NAV_LINKS.map((item) => (
+                <FooterLink key={item.destination} name={item.name} destination={item.destination} />
+            ))}
+        </div>
+    );
+}
+
+function ResourcesLinks() {
+    return (
+        <div className="grid grid-row-4 gap-y-2">
+            {RESOURCE_LINKS.map((item) => (
+                <FooterLink key={item.destination} name={item.name} destination={item.destination} />
+            ))}
+        </div>
+    );
+}
+
 export default async function Footer() {
     const trademark = await getTrademark();
 
     return (
-        <div className="grid grid-cols-3 items-center w-full px-8 md:px-48">
-            <div className="grid grid-row-3 ml-4 pb-15 gap-y-4">
-                <div>
-                    <Link href="/"><Logo /></Link>
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center w-full px-8 md:px-48">
+            <div className="grid grid-cols-2 md:grid-cols-1 items-start ml-4 md:pb-8 gap-x-4 md:gap-y-4">
+                <div className="grid gap-y-2 md:contents">
+                    <div className="md:order-1">
+                        <Link href="/"><Logo /></Link>
+                    </div>
+                    <p className="text-xs text-gray-400 md:order-3">{trademark}</p>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-2 max-w-50">
-                    {ICON_LINKS.map((link) => (
-                        <IconButton key={link.icon} destination={link.destination} icon={link.icon} />
-                    ))}
+                <div className="md:order-2 px-8 md:px-0">
+                    <IconLinks />
                 </div>
-                <p className="text-xs text-gray-400">{trademark}</p>
             </div>
-            <div className="grid grid-row-2 ml-4 gap-y-4">
+            <div className="hidden md:grid grid-row-2 ml-4 gap-y-4">
                 <div>
                     <p className="font-bold">Explore</p>
                 </div>
-                <div className="grid grid-row-4 gap-y-2">
-                    {NAV_LINKS.map((item) => (
-                        <FooterLink key={item.destination} name={item.name} destination={item.destination} />
-                    ))}
-                </div>
+                <ExploreLinks />
             </div>
-            <div className="grid grid-row-2 ml-4 gap-y-4">
+            <div className="hidden md:grid grid-row-2 ml-4 gap-y-4">
                 <div>
                     <p className="font-bold">Resources</p>
                 </div>
-                <div className="grid grid-row-4 gap-y-2">
-                    {RESOURCE_LINKS.map((item) => (
-                        <FooterLink key={item.destination} name={item.name} destination={item.destination} />
-                    ))}
-                </div>
+                <ResourcesLinks />
             </div>
         </div>
     );
