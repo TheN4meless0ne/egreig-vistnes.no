@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import SearchIcon from "./icon/search";
 import Link, { resolveHref } from "./link";
 
-import { searchBarProps, searchItem } from "../../types/filters";
+import { searchBarProps, searchItem } from "../../lib/filters";
 
 export default function SearchBar({
     placeholder = "Search",

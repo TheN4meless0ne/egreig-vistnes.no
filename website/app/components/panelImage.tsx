@@ -1,5 +1,5 @@
 import Image from "./parts/image";
-import { panelImageProps } from "../types/filters";
+import { panelImageProps } from "../lib/filters";
 
 export default function PanelImage({ image, alt, heading, subheading, body1, body2 }: panelImageProps) {
     return (

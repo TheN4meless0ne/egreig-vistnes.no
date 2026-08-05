@@ -1,4 +1,4 @@
-import { iconSizeProp } from "../../../types/filters";
+import { iconSizeProp } from "../../../lib/filters";
 
 export default function SearchIcon({ size = 16 }: iconSizeProp) {
     return (

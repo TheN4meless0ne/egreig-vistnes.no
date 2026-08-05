@@ -6,7 +6,7 @@ import InstagramIcon from "./icon/social/instagram";
 import XLogoIcon from "./icon/social/xLogo";
 import YouTubeIcon from "./icon/social/youtube";
 
-import { navButtonProps, iconButtonProps } from "../../types/filters";
+import { navButtonProps, iconButtonProps } from "../../lib/filters";
 
 export function NavbarButton({ name, destination }: navButtonProps) {
     return (

@@ -1,4 +1,4 @@
-import { innerShadowFilterProps } from "../../types/filters";
+import { innerShadowFilterProps } from "../../lib/filters";
 
 export default function InnerShadowFilter({ id, width, height }: innerShadowFilterProps) {
     return (

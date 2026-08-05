@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { linkProps } from "../../types/filters";
+import { linkProps } from "../../lib/filters";
 
 // Empty unless running behind the `proxy` dev mode — see next.config.ts.
 // `absproxy` uses basePath, which next/link applies on its own.

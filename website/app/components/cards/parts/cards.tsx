@@ -1,4 +1,4 @@
-import { cardProps } from "../../../types/filters";
+import { cardProps } from "../../../lib/filters";
 import CircleAlert from "../../parts/icon/alert";
 
 export { Card, ProjectCard, ContactCard };

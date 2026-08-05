@@ -1,4 +1,4 @@
-import { iconSizeProp } from "../../../types/filters";
+import { iconSizeProp } from "../../../lib/filters";
 
 export default function CloseIcon({ size = 24 }: iconSizeProp) {
     return (

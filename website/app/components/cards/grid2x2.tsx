@@ -1,4 +1,4 @@
-import { cardGrid2x2Props } from "../../types/filters";
+import { cardGrid2x2Props } from "../../lib/filters";
 import { Card } from "./parts/cards";
 
 export function CardGrid2x2({ heading, subheading }: cardGrid2x2Props) {
