@@ -8,9 +8,19 @@ const devPrefix = (() => {
   return proxyMode === "absproxy" ? "/absproxy/3000" : "/proxy/3000";
 })();
 
+// `absproxy` sets basePath, and Next prefixes next/link hrefs with basePath
+// automatically. `proxy` only sets assetPrefix, covering /_next/*
+// HREF links must be prefixed manually in dev mode
+const routePrefix = !isProd && proxyMode === "proxy" ? devPrefix : undefined;
+
 const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
+  },
+
+  // Inlined at build time so components can resolve internal hrefs.
+  env: {
+    NEXT_PUBLIC_ROUTE_PREFIX: routePrefix ?? "",
   },
   // basePath only needed for absproxy, which keeps the prefix in the URL
   basePath: proxyMode === "absproxy" ? devPrefix : undefined,

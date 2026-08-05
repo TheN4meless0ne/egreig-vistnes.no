@@ -1,17 +1,11 @@
+import { cardProps } from "../../../lib/filters";
 import CircleAlert from "../../parts/icon/alert";
 
 export { Card, ProjectCard, ContactCard };
 
-type CardProps = {
-    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-    title: string;
-    body: string;
-    link: string;
-    label: string;
-    value: string;
-};
 
-function Card({ title, body }: CardProps) {
+
+function Card({ title, body }: cardProps) {
     return (
         <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start">
             <div className="w-6 h-6">
@@ -27,7 +21,7 @@ function Card({ title, body }: CardProps) {
     );
 }
 
-function ProjectCard ({ title, body }: CardProps) {
+function ProjectCard ({ title, body }: cardProps) {
     return (
         <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start">
             <div className="w-6 h-6">
@@ -43,7 +37,7 @@ function ProjectCard ({ title, body }: CardProps) {
     );
 }
 
-function ContactCard ({ icon: Icon, label, link, value }: CardProps) {
+function ContactCard ({ icon: Icon, label, link, value }: cardProps) {
     return (
         <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start p-4">
             <div className="py-3">

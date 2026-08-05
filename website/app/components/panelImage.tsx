@@ -1,15 +1,7 @@
 import Image from "./parts/image";
+import { panelImageProps } from "../lib/filters";
 
-type PanelImageProps = {
-    image: string;
-    alt: string;
-    heading: string;
-    subheading: string;
-    body1: string;
-    body2: string;
-};
-
-export default function PanelImage({ image, alt, heading, subheading, body1, body2 }: PanelImageProps) {
+export default function PanelImage({ image, alt, heading, subheading, body1, body2 }: panelImageProps) {
     return (
         <div className="flex flex-col lg:flex-row px-6 md:px-10 lg:px-16 py-8 gap-8 lg:gap-12">
             <Image alt={alt} src={image} />
