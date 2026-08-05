@@ -124,7 +124,7 @@ export default function SearchBar({
             </form>
 
             {isOpen && (
-                <div className="absolute right-0 z-30 mt-2 w-full sm:w-[26rem] overflow-hidden rounded-xl border border-foreground/20 bg-background shadow-lg">
+                <div className="absolute right-0 z-30 mt-2 w-full sm:w-104 overflow-hidden rounded-xl border border-foreground/20 bg-background shadow-lg">
                     {isLoading ? (
                         <div className="px-4 py-3 text-sm opacity-80">Searching...</div>
                     ) : requestError ? (
