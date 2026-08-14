@@ -12,7 +12,6 @@ const ICON_LINKS = [
 
 const NAV_LINKS = [
     { name: "Portfolio", destination: "/portfolio" },
-    { name: "Socials", destination: "/socials" },
     { name: "Resources", destination: "/resources" },
     { name: "Contact", destination: "/contact" },
 ];
@@ -36,7 +35,7 @@ function IconLinks() {
 
 function ExploreLinks() {
     return (
-        <div className="grid grid-row-4 gap-y-2">
+        <div className="grid grid-row-auto gap-y-2">
             {NAV_LINKS.map((item) => (
                 <FooterLink key={item.destination} name={item.name} destination={item.destination} />
             ))}
@@ -46,7 +45,7 @@ function ExploreLinks() {
 
 function ResourcesLinks() {
     return (
-        <div className="grid grid-row-4 gap-y-2">
+        <div className="grid grid-row-auto gap-y-2">
             {RESOURCE_LINKS.map((item) => (
                 <FooterLink key={item.destination} name={item.name} destination={item.destination} />
             ))}
@@ -58,8 +57,8 @@ export default async function Footer() {
     const trademark = await getTrademark();
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 items-center w-full px-8 md:px-48">
-            <div className="grid grid-cols-2 md:grid-cols-1 items-start ml-4 md:pb-8 gap-x-4 md:gap-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 w-full items-start px-8 md:px-48">
+            <div className="grid grid-cols-2 md:grid-cols-1 ml-4 gap-x-4 md:gap-y-2 items-start">
                 <div className="grid gap-y-2 md:contents">
                     <div className="md:order-1">
                         <Link href="/"><Logo /></Link>
@@ -70,13 +69,13 @@ export default async function Footer() {
                     <IconLinks />
                 </div>
             </div>
-            <div className="hidden md:grid grid-row-2 ml-4 gap-y-4">
+            <div className="hidden md:grid grid-row-2 ml-4 gap-y-2 self-start">
                 <div>
                     <p className="font-bold">Explore</p>
                 </div>
                 <ExploreLinks />
             </div>
-            <div className="hidden md:grid grid-row-2 ml-4 gap-y-4">
+            <div className="hidden md:grid grid-row-2 ml-4 gap-y-2 self-start">
                 <div>
                     <p className="font-bold">Resources</p>
                 </div>

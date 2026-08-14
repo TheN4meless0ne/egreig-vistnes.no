@@ -12,7 +12,6 @@ import SearchIcon from "./parts/icon/search";
 const NAV_LINKS = [
     { name: "Home", destination: "/" },
     { name: "Portfolio", destination: "/portfolio" },
-    { name: "Socials", destination: "/socials" },
     { name: "Resources", destination: "/resources" },
     { name: "Contact", destination: "/contact" },
 ];
