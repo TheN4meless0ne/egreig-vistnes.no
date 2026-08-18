@@ -13,6 +13,7 @@ const NAV_LINKS = [
     { name: "Home", destination: "/" },
     { name: "Portfolio", destination: "/portfolio" },
     { name: "Resources", destination: "/resources" },
+    { name: "Documents", destination: "/docs" },
     { name: "Contact", destination: "/contact" },
 ];
 

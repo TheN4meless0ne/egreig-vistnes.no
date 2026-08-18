@@ -17,18 +17,18 @@ const RESOURCES = [
 export default function ResourcesPage() {
     return (
         <main className="flex flex-col items-center justify-center gap-6 py-6">
-            <h1 className="text-2xl font-semibold">🚧 This page is currently under development 🚧</h1>
-	    <div className="flex flex-col gap-4 w-full max-w-2xl">
-		{RESOURCES.map((item) => (
-		    <article key={item.name} className="border-b border-neutral-200 pb-4">
-			<h2 className="text-lg font-medium">
-			    <Link href={item.destination} className="hover:underline">
-				{item.name}
-			    </Link>
-			</h2>
-		    </article>
-		))}
-	    </div>
+            <h1 className="text-2xl font-semibold">Downloadable Resources</h1>
+            <div className="flex flex-col gap-4 w-full max-w-2xl">
+                {RESOURCES.map((item) => (
+                    <article key={item.name} className="border-b border-neutral-200 pb-4">
+                        <h2 className="text-lg font-medium">
+                            <Link href={item.destination} className="hover:underline">
+                                {item.name}
+                            </Link>
+                        </h2>
+                    </article>
+                ))}
+            </div>
         </main>
     );
 }
