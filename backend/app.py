@@ -4,6 +4,7 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from dotenv import load_dotenv
 from search_routes import search_blueprint
+from library_routes import library_blueprint
 from email.message import EmailMessage
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
@@ -34,6 +35,7 @@ CORS(app, resources={
 })
 
 app.register_blueprint(search_blueprint)
+app.register_blueprint(library_blueprint)
 
 @app.route("/api/contact", methods=["POST"])
 @limiter.limit("5 per hour")

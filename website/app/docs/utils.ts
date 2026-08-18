@@ -8,26 +8,42 @@ type Metadata = {
   image?: string
 }
 
+const REQUIRED_FIELDS: (keyof Metadata)[] = ['title', 'publishedAt', 'summary']
+
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
   let match = frontmatterRegex.exec(fileContent)
-  let frontMatterBlock = match![1]
+  if (!match) {
+    throw new Error('Invalid frontmatter: missing --- block')
+  }
+  let frontMatterBlock = match[1]
   let content = fileContent.replace(frontmatterRegex, '').trim()
   let frontMatterLines = frontMatterBlock.trim().split('\n')
   let metadata: Partial<Metadata> = {}
 
   frontMatterLines.forEach((line) => {
-    let [key, ...valueArr] = line.split(': ')
-    let value = valueArr.join(': ').trim()
+    let colonIndex = line.indexOf(':')
+    let key = line.slice(0, colonIndex).trim()
+    let value = line.slice(colonIndex + 1).trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
+    metadata[key as keyof Metadata] = value
   })
+
+  for (const field of REQUIRED_FIELDS) {
+    if (!metadata[field]) {
+      throw new Error(`Missing required frontmatter field "${field}"`)
+    }
+  }
 
   return { metadata: metadata as Metadata, content }
 }
 
+const SUPPORTED_EXTENSIONS = ['.mdx', '.md']
+
 function getMDXFiles(dir) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
+  return fs
+    .readdirSync(dir)
+    .filter((file) => SUPPORTED_EXTENSIONS.includes(path.extname(file)))
 }
 
 function readMDXFile(filePath) {
@@ -50,42 +66,10 @@ function getMDXData(dir) {
 }
 
 export function getDocuments() {
-  return getMDXData(path.join(process.cwd(), 'app', 'documents', 'posts'))
+  return getMDXData(path.join(process.cwd(), 'app', 'docs', 'files'))
 }
 
-export function formatDate(date: string, includeRelative = false) {
-  let currentDate = new Date()
-  if (!date.includes('T')) {
-    date = `${date}T00:00:00`
-  }
-  let targetDate = new Date(date)
-
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-  let daysAgo = currentDate.getDate() - targetDate.getDate()
-
-  let formattedDate = ''
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`
-  } else {
-    formattedDate = 'Today'
-  }
-
-  let fullDate = targetDate.toLocaleString('en-us', {
-    month: 'short', // possible values: 'long', 'short'
-    day: 'numeric',
-    year: 'numeric',
-  })
-
-  if (!includeRelative) {
-    return fullDate
-  }
-
-  return `${fullDate} (${formattedDate})`
-}
-    
+// The actual implementation now lives in lib/content/format.ts, shared with
+// SharePoint-sourced items. Re-exported here so any existing `from './utils'`
+// imports keep working.
+export { formatDate } from '../lib/content/format'
