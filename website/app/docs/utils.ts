@@ -69,37 +69,7 @@ export function getDocuments() {
   return getMDXData(path.join(process.cwd(), 'app', 'docs', 'files'))
 }
 
-export function formatDate(date: string, includeRelative = false) {
-  let currentDate = new Date()
-  if (!date.includes('T')) {
-    date = `${date}T00:00:00`
-  }
-  let targetDate = new Date(date)
-
-  let diffDays = Math.floor((currentDate.getTime() - targetDate.getTime()) / 86400000)
-
-  let formattedDate = ''
-
-  if (diffDays < 1) {
-    formattedDate = 'Today'
-  } else if (diffDays < 30) {
-    formattedDate = `${diffDays}d ago`
-  } else if (diffDays < 365) {
-    formattedDate = `${Math.floor(diffDays / 30)}mo ago`
-  } else {
-    formattedDate = `${Math.floor(diffDays / 365)}y ago`
-  }
-
-  let fullDate = targetDate.toLocaleString('en-us', {
-    month: 'short', // possible values: 'long', 'short'
-    day: 'numeric',
-    year: 'numeric',
-  })
-
-  if (!includeRelative) {
-    return fullDate
-  }
-
-  return `${fullDate} (${formattedDate})`
-}
-    
+// The actual implementation now lives in lib/content/format.ts, shared with
+// SharePoint-sourced items. Re-exported here so any existing `from './utils'`
+// imports keep working.
+export { formatDate } from '../lib/content/format'
