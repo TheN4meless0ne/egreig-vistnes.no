@@ -8,20 +8,32 @@ type Metadata = {
   image?: string
 }
 
+const REQUIRED_FIELDS: (keyof Metadata)[] = ['title', 'publishedAt', 'summary']
+
 function parseFrontmatter(fileContent: string) {
   let frontmatterRegex = /---\s*([\s\S]*?)\s*---/
   let match = frontmatterRegex.exec(fileContent)
-  let frontMatterBlock = match![1]
+  if (!match) {
+    throw new Error('Invalid frontmatter: missing --- block')
+  }
+  let frontMatterBlock = match[1]
   let content = fileContent.replace(frontmatterRegex, '').trim()
   let frontMatterLines = frontMatterBlock.trim().split('\n')
   let metadata: Partial<Metadata> = {}
 
   frontMatterLines.forEach((line) => {
-    let [key, ...valueArr] = line.split(': ')
-    let value = valueArr.join(': ').trim()
+    let colonIndex = line.indexOf(':')
+    let key = line.slice(0, colonIndex).trim()
+    let value = line.slice(colonIndex + 1).trim()
     value = value.replace(/^['"](.*)['"]$/, '$1') // Remove quotes
-    metadata[key.trim() as keyof Metadata] = value
+    metadata[key as keyof Metadata] = value
   })
+
+  for (const field of REQUIRED_FIELDS) {
+    if (!metadata[field]) {
+      throw new Error(`Missing required frontmatter field "${field}"`)
+    }
+  }
 
   return { metadata: metadata as Metadata, content }
 }
@@ -50,7 +62,7 @@ function getMDXData(dir) {
 }
 
 export function getDocuments() {
-  return getMDXData(path.join(process.cwd(), 'app', 'documents', 'posts'))
+  return getMDXData(path.join(process.cwd(), 'app', 'docs', 'files'))
 }
 
 export function formatDate(date: string, includeRelative = false) {
@@ -60,20 +72,18 @@ export function formatDate(date: string, includeRelative = false) {
   }
   let targetDate = new Date(date)
 
-  let yearsAgo = currentDate.getFullYear() - targetDate.getFullYear()
-  let monthsAgo = currentDate.getMonth() - targetDate.getMonth()
-  let daysAgo = currentDate.getDate() - targetDate.getDate()
+  let diffDays = Math.floor((currentDate.getTime() - targetDate.getTime()) / 86400000)
 
   let formattedDate = ''
 
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`
-  } else {
+  if (diffDays < 1) {
     formattedDate = 'Today'
+  } else if (diffDays < 30) {
+    formattedDate = `${diffDays}d ago`
+  } else if (diffDays < 365) {
+    formattedDate = `${Math.floor(diffDays / 30)}mo ago`
+  } else {
+    formattedDate = `${Math.floor(diffDays / 365)}y ago`
   }
 
   let fullDate = targetDate.toLocaleString('en-us', {
