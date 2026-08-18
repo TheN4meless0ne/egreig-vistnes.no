@@ -38,8 +38,12 @@ function parseFrontmatter(fileContent: string) {
   return { metadata: metadata as Metadata, content }
 }
 
+const SUPPORTED_EXTENSIONS = ['.mdx', '.md']
+
 function getMDXFiles(dir) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
+  return fs
+    .readdirSync(dir)
+    .filter((file) => SUPPORTED_EXTENSIONS.includes(path.extname(file)))
 }
 
 function readMDXFile(filePath) {
