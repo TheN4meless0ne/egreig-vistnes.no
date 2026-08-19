@@ -22,7 +22,7 @@ def get_library(key: str):
     try:
         items = list_folder(key)
     except SharePointNotConfigured as e:
-        return jsonify({"error": str(e)}), 503
+        return jsonify({"error": "SharePoint integration is not configured."}), 503
     except Exception as e:  # Graph outage, network failure, bad response, etc.
         return jsonify({"error": "Failed to reach SharePoint.", "detail": str(e)}), 502
 
