@@ -1,12 +1,12 @@
 import { iconSizeProp } from "../../../lib/filters";
 
-export default function SearchIcon({ size = 16 }: iconSizeProp) {
+export default function DownloadIcon({ size = 16 }: iconSizeProp) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width={size}
             height={size}
-            viewBox="0 1 24 24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -14,10 +14,11 @@ export default function SearchIcon({ size = 16 }: iconSizeProp) {
             strokeLinejoin="round"
             aria-hidden="true"
             focusable="false"
-            className="lucide lucide-search-icon lucide-search text-foreground"
+            className="lucide lucide-download-icon lucide-download text-foreground"
         >
-            <path d="m21 21-4.34-4.34" />
-            <circle cx="11" cy="11" r="8" />
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" x2="12" y1="15" y2="3" />
         </svg>
     );
 }

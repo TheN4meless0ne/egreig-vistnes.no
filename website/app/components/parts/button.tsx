@@ -1,16 +1,50 @@
-import Link from "next/link";
+import Link from "./link";
 
-type NavButtonProps = {
-    name: string;
-    destination: string;
-};
+import LinkedInIcon from "./icon/social/linkedin";
+import GithubIcon from "./icon/social/github";
+import InstagramIcon from "./icon/social/instagram";
+import XLogoIcon from "./icon/social/xLogo";
+import YouTubeIcon from "./icon/social/youtube";
 
-export default function NavButton({ name, destination }: NavButtonProps) {
+import { navButtonProps, iconButtonProps } from "../../lib/filters";
+
+export function NavbarButton({ name, destination }: navButtonProps) {
     return (
-        <button className="p-2 rounded-lg inline-flex justify-center items-center gap-2 hover:bg-gray-100 dark:hover:bg-neutral-800">
-            <div>
-                <Link href={destination}>{name}</Link>
-            </div>
-        </button>
+        <Link
+            href={destination}
+            className="p-2 rounded-lg inline-flex justify-center items-center gap-2 text-base font-normal leading-4 transition-colors hover:bg-foreground/10 active:bg-foreground/20 hover:cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40"
+        >
+            {name}
+        </Link>
+    );
+}
+
+export function IconButton({ destination, icon }: iconButtonProps) {
+    const iconComponents: { [key: string]: React.ReactNode } = {
+        LinkedIn: <LinkedInIcon />,
+        Github: <GithubIcon />,
+        Instagram: <InstagramIcon />,
+        XLogo: <XLogoIcon />,
+        YouTube: <YouTubeIcon />,
+    };
+
+    const IconComponent = iconComponents[icon];
+
+    if (!IconComponent) {
+        return null; // Return null if the icon is not found
+    }
+
+    return (
+        <Link href={destination}>
+            {IconComponent}
+        </Link>
+    );
+}
+
+export function FooterLink({ name, destination }: navButtonProps) {
+    return (
+        <Link href={destination} className="hover:underline">
+            {name}
+        </Link>
     );
 }

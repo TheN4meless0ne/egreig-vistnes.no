@@ -1,12 +1,12 @@
 import { iconSizeProp } from "../../../lib/filters";
 
-export default function SearchIcon({ size = 16 }: iconSizeProp) {
+export default function EyeIcon({ size = 16 }: iconSizeProp) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             width={size}
             height={size}
-            viewBox="0 1 24 24"
+            viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -14,10 +14,10 @@ export default function SearchIcon({ size = 16 }: iconSizeProp) {
             strokeLinejoin="round"
             aria-hidden="true"
             focusable="false"
-            className="lucide lucide-search-icon lucide-search text-foreground"
+            className="lucide lucide-eye-icon lucide-eye text-foreground"
         >
-            <path d="m21 21-4.34-4.34" />
-            <circle cx="11" cy="11" r="8" />
+            <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+            <circle cx="12" cy="12" r="3" />
         </svg>
     );
 }

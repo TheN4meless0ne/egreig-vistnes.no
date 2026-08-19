@@ -1,12 +1,12 @@
-type ImageProps = {
-    src: string;
-    alt: string;
-};
+const prefix = process.env.NEXT_PUBLIC_ASSET_PREFIX ?? '';
 
-export default function Image({ src, alt }: ImageProps) {
+import { imageProps } from "../../lib/filters";
+
+export default function Image({ src, alt }: imageProps) {
+  const resolvedSrc = src.startsWith('http://') || src.startsWith('https://') ? src : `${prefix}${src}`;
   return (
     <img
-      src={src}
+      src={resolvedSrc}
       alt={alt}
     />
   );
