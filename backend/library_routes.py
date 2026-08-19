@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import logging
+
 from flask import Blueprint, jsonify
 
 from sharepoint_service import (
@@ -12,6 +14,7 @@ from sharepoint_service import (
 )
 
 library_blueprint = Blueprint("library", __name__)
+logger = logging.getLogger(__name__)
 
 
 @library_blueprint.get("/api/library/<key>")
@@ -23,7 +26,8 @@ def get_library(key: str):
         items = list_folder(key)
     except SharePointNotConfigured as e:
         return jsonify({"error": "SharePoint integration is not configured."}), 503
-    except Exception as e:  # Graph outage, network failure, bad response, etc.
-        return jsonify({"error": "Failed to reach SharePoint.", "detail": str(e)}), 502
+    except Exception:  # Graph outage, network failure, bad response, etc.
+        logger.exception("Failed to reach SharePoint for library key '%s'.", key)
+        return jsonify({"error": "Failed to reach SharePoint."}), 502
 
     return jsonify({"items": [library_item_to_dict(item) for item in items]}), 200
