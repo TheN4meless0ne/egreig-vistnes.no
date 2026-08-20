@@ -8,6 +8,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
   }
 
-  revalidateTag("trademark");
+  revalidateTag("trademark", { expire: 0 });
   return NextResponse.json({ revalidated: true, now: Date.now() });
 }
