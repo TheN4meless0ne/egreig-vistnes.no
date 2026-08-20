@@ -27,9 +27,12 @@ export type panelImageProps = {
 };
 
 export type cardProps = {
-    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     title: string;
     body: string;
+};
+
+export type contactCardProps = {
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     link: string;
     label: string;
     value: string;

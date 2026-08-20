@@ -1,4 +1,4 @@
-import { cardProps } from "../../../lib/filters";
+import { cardProps, contactCardProps } from "../../../lib/filters";
 import CircleAlert from "../../parts/icon/alert";
 
 export { Card, ProjectCard, ContactCard };
@@ -37,7 +37,7 @@ function ProjectCard ({ title, body }: cardProps) {
     );
 }
 
-function ContactCard ({ icon: Icon, label, link, value }: cardProps) {
+function ContactCard ({ icon: Icon, label, link, value }: contactCardProps) {
     return (
         <div className="inline-flex justify-start items-start gap-4 flex-wrap content-start p-4">
             <div className="py-3">
