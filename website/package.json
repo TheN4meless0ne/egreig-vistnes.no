@@ -13,13 +13,13 @@
   "dependencies": {
     "next": "16.3.1",
     "next-mdx-remote": "^6.0.0",
-    "react": "19.2.0",
+    "react": "19.2.8",
     "react-dom": "19.2.8",
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
-    "@types/node": "^20.19.43",
+    "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "baseline-browser-mapping": "^2.11.14",
