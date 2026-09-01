@@ -42,7 +42,7 @@ export default function ContactPage() {
     }
 
     return (
-        <main className="flex-1 flex items-center px-6 py-8">
+        <main className="flex-1 flex items-center justify-center px-6 py-8">
             <section className="rounded-2xl p-10">
                 <div className="grid md:grid-cols-2 gap-8 items-stretch md:h-80">
                     <div className="flex flex-col justify-between">
