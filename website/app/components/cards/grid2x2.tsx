@@ -8,7 +8,7 @@ export function CardGrid2x2({ heading, subheading }: cardGrid2x2Props) {
                 <div className="justify-start text-2xl">{heading}</div>
                 <div className="justify-center text-xl">{subheading}</div>
             </div>
-            <div className="py-4 grid grid-cols-2 gap-16">
+            <div className="py-4 grid md:grid-cols-2 gap-16">
                 <Card title="Title" body="Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story." />
                 <Card title="Title" body="Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story." />
                 <Card title="Title" body="Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very very short story." />
