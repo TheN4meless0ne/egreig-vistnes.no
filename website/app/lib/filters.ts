@@ -41,9 +41,19 @@ export type contactCardProps = {
     value: string;
 };
 
+export type cardGridItemProps = cardProps & {
+    /** Internal path to link the card to, e.g. `/docs/Projects-abc123`. Omit for a non-clickable card. */
+    href?: string;
+};
+
 export type cardGrid2x2Props = {
     heading: string;
     subheading: string;
+    items: cardGridItemProps[];
+};
+
+export type tagProps = {
+    label: string;
 };
 export type innerShadowFilterProps = {
     id: string;

@@ -25,6 +25,8 @@ type RawLibraryItem = {
     id: string;
     name: string;
     title: string;
+    featured: boolean;
+    description: string;
     extension: string;
     size: number;
     created_at: string;
@@ -60,8 +62,10 @@ function toContentItem(raw: RawLibraryItem, libraryKey: string): ContentItem {
     return {
         slug: `${libraryKey}-${encodeURIComponent(raw.id)}`,
         title: raw.title,
+        summary: raw.description || undefined,
         source: "sharepoint",
         date: raw.modified_at || raw.created_at,
+        featured: raw.featured,
         previewKind: previewKindForExtension(raw.extension),
         file: {
             name: raw.name,

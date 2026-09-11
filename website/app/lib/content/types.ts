@@ -34,5 +34,10 @@ export type ContentItem = {
      * items it's only loaded on demand (see sharepointSource.loadSharePointTextContent),
      * so list pages don't fetch every file's contents just to show a title. */
     content?: string;
+    /** True when the SharePoint "Featured Project" column is set on this item.
+     * Only meaningful for the Projects library — local docs and the other
+     * SharePoint libraries (Documents, Resources) don't have this column, so
+     * it's always undefined there. */
+    featured?: boolean;
     file?: ContentFile;
 };

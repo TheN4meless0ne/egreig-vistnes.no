@@ -6,18 +6,30 @@ function sortByDateDesc(items: ContentItem[]): ContentItem[] {
     return [...items].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-/** Local MDX articles + the SharePoint "documents" library, merged into one date-sorted list. */
+/** Local MDX articles + the SharePoint "Documents" and "Projects" libraries, merged into one date-sorted list. */
 export async function getDocsContent(): Promise<ContentItem[]> {
-    const [local, sharepoint] = await Promise.all([
+    const [local, documents, projects] = await Promise.all([
         Promise.resolve(getLocalDocuments()),
-        getSharePointItems("documents"),
+        getSharePointItems("Documents"),
+        getSharePointItems("Projects"),
     ]);
-    return sortByDateDesc([...local, ...sharepoint]);
+    return sortByDateDesc([...local, ...documents, ...projects]);
 }
 
 /** The SharePoint "resources" library, date-sorted. */
 export async function getResourcesContent(): Promise<ContentItem[]> {
-    return sortByDateDesc(await getSharePointItems("resources"));
+    return sortByDateDesc(await getSharePointItems("Resources"));
+}
+
+/** The SharePoint "Projects" library, date-sorted. */
+export async function getProjectsContent(): Promise<ContentItem[]> {
+    return sortByDateDesc(await getSharePointItems("Projects"));
+}
+
+/** Just the Projects flagged with the "Featured Project" SharePoint column, for the homepage. */
+export async function getFeaturedProjectsContent(): Promise<ContentItem[]> {
+    const projects = await getProjectsContent();
+    return projects.filter((item) => item.featured);
 }
 
 /**

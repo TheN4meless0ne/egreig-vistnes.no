@@ -30,8 +30,9 @@ import requests
 
 # App-facing library key -> top-level folder name in the site's default drive.
 LIBRARY_FOLDERS = {
-    "documents": "documents",
-    "resources": "resources",
+    "Documents": "Documents",
+    "Resources": "Resources",
+    "Projects": "Projects",
 }
 
 GRAPH_BASE = "https://graph.microsoft.com/v1.0"
@@ -131,6 +132,8 @@ class LibraryItem:
     id: str
     name: str
     title: str
+    featured: bool
+    description: str
     extension: str
     size: int
     created_at: str
@@ -153,10 +156,31 @@ def _parse_item(raw: dict) -> LibraryItem | None:
     fields = (raw.get("listItem") or {}).get("fields") or {}
     title = fields.get("Title") or (stem or name)
 
+    # "Featured Project" column (internal name FeaturedProject), added on
+    # the Projects folder's library so the site can pull a curated subset.
+    # Already present in this payload — $expand=listItem($expand=fields)
+    # below fetches every column, so this costs no extra Graph call. The
+    # Documents/Resources libraries simply don't have the column, so it's
+    # absent from fields there and defaults to False.
+    featured = bool(fields.get("FeaturedProject", False))
+
+    # "Description" column, added on the Projects folder's library as a
+    # one-line summary for the homepage cards and the Documents page.
+    # ASSUMPTION: internal name is "Description" — this was recreated from
+    # scratch (the original reused site column wasn't editable, so it was
+    # deleted and replaced with a fresh custom column of the same display
+    # name). Recreating a column can sometimes get a suffixed internal name
+    # if SharePoint hasn't fully released the old one from the list schema,
+    # so verify with the same GetList(...)/fields REST check used for
+    # FeaturedProject if this comes back empty for an item that has one set.
+    description = fields.get("Description") or ""
+
     return LibraryItem(
         id=raw["id"],
         name=name,
         title=title,
+        featured=featured,
+        description=description,
         extension=extension,
         size=raw.get("size", 0),
         created_at=raw.get("createdDateTime", ""),
