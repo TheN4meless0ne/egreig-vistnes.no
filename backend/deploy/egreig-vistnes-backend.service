@@ -1,0 +1,23 @@
+[Unit]
+Description=egreig-vistnes.no Flask backend (gunicorn)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=<PI_USER>
+Group=<PI_USER>
+WorkingDirectory=<REPO_PATH>/backend
+Environment=PYTHONUNBUFFERED=1
+ExecStart=<REPO_PATH>/.venv/bin/gunicorn --bind 0.0.0.0:5001 --workers 3 app:app
+Restart=on-failure
+RestartSec=5
+
+# Hardening — comment out if it causes trouble, but worth trying first.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=<REPO_PATH>
+
+[Install]
+WantedBy=multi-user.target
