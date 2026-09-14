@@ -41,6 +41,9 @@ function parseFrontmatter(fileContent: string) {
 const SUPPORTED_EXTENSIONS = ['.mdx', '.md']
 
 function getMDXFiles(dir) {
+  if (!fs.existsSync(dir)) {
+    return []
+  }
   return fs
     .readdirSync(dir)
     .filter((file) => SUPPORTED_EXTENSIONS.includes(path.extname(file)))
