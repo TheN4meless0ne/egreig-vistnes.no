@@ -47,16 +47,13 @@ async function fetchLibrary(libraryKey: string): Promise<RawLibraryItem[]> {
         if (!res.ok) {
             // Missing Azure config (503), Graph outage, bad response, etc. —
             // degrade to "no items" rather than failing the whole page.
-            console.error(`[sharepointSource] ${libraryKey}: backend returned ${res.status} ${res.statusText} from ${BACKEND_URL}`);
             return [];
         }
 
         const data = (await res.json()) as { items?: RawLibraryItem[] };
         return data.items ?? [];
-    } catch (err) {
+    } catch {
         // Backend unreachable (e.g. not running locally during dev/build).
-        // Temporary logging to diagnose why this fails from Vercel but not locally — remove once resolved.
-        console.error(`[sharepointSource] ${libraryKey}: fetch to ${BACKEND_URL} threw —`, err);
         return [];
     }
 }
