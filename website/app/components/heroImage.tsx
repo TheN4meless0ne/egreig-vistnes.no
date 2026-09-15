@@ -10,7 +10,7 @@ type HeroImageProps = {
 export default function HeroImage({ image, alt, title, subtitle }: HeroImageProps) {
     return (
         <span className="relative">
-            <Image alt={alt} src={image} />
+            <Image alt={alt} src={image} width={4032} height={1106} className="w-full h-auto object-cover" />
             <div className="absolute inset-0 flex flex-col justify-center items-center text-white md:gap-2">
                 <h1 className="text-center justify-start font-bold text-3xl md:text-7xl">{title}</h1>
                 <p className="text-center justify-center md:text-3xl">{subtitle}</p>

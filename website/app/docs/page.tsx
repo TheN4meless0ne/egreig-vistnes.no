@@ -1,6 +1,7 @@
 import { getDocsContent } from '../lib/content'
 import { formatDate, formatBytes } from '../lib/content/format'
 import Link from '../components/parts/link'
+import { Tag } from '../components/parts/tag'
 
 // SharePoint download links are time-limited; render this page fresh on
 // every request rather than baking a stale link into a static build.
@@ -23,10 +24,11 @@ export default async function DocsPage() {
                 )}
                 {documents.map((doc) => (
                     <article key={doc.slug} className="border-b border-neutral-200 pb-4">
-                        <h2 className="text-lg font-medium">
+                        <h2 className="text-lg font-medium flex items-center gap-2">
                             <Link href={`/docs/${doc.slug}`} className="hover:underline">
                                 {doc.title}
                             </Link>
+                            {doc.featured && <Tag label="Featured on homepage" />}
                         </h2>
                         <p className="text-sm text-neutral-500">
                             {formatDate(doc.date, true)}
