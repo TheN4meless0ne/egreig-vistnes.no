@@ -50,10 +50,10 @@ export default function ContactPage() {
                             <p className="text-xs uppercase tracking-widest font-mono mb-3">
                                 Contact
                             </p>
-                            <h1 className="text-3xl font-light mb-2">Let's talk</h1>
+                            <h1 className="text-3xl font-light mb-2">Let&apos;s talk</h1>
                             <p className="text-sm leading-relaxed">
                                 Have a question or want to work together?
-                                Drop me a message and I'll get back to you soon.
+                                Drop me a message and I&apos;ll get back to you soon.
                             </p>
                         </div>
                         <div>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                         {status === "sent" ? (
                             <div className="flex flex-col items-center justify-center h-full gap-3 text-center">
                                 <p className="text-sm font-medium">Message sent!</p>
-                                <p className="text-xs">I'll get back to you soon.</p>
+                                <p className="text-xs">I&apos;ll get back to you soon.</p>
                                 <button
                                     onClick={handleReset}
                                     className="text-xs text-blue-600 underline underline-offset-2"
