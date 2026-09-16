@@ -1,11 +1,11 @@
 export function formatDate(date: string, includeRelative = false): string {
-    let currentDate = new Date()
+    const currentDate = new Date()
     if (!date.includes('T')) {
         date = `${date}T00:00:00`
     }
-    let targetDate = new Date(date)
+    const targetDate = new Date(date)
 
-    let diffDays = Math.floor((currentDate.getTime() - targetDate.getTime()) / 86400000)
+    const diffDays = Math.floor((currentDate.getTime() - targetDate.getTime()) / 86400000)
 
     let formattedDate = ''
 
@@ -19,7 +19,7 @@ export function formatDate(date: string, includeRelative = false): string {
         formattedDate = `${Math.floor(diffDays / 365)}y ago`
     }
 
-    let fullDate = targetDate.toLocaleString('en-us', {
+    const fullDate = targetDate.toLocaleString('en-us', {
         month: 'short',
         day: 'numeric',
         year: 'numeric',

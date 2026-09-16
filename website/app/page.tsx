@@ -26,12 +26,12 @@ export default async function Home() {
                         image="/sunset.png"
                         alt="Sunset at Vistvik beach"
                         title="Elias Greig-Vistnes"
-                        subtitle="IT Apprentice at Cegal Norway"
+                        subtitle="IT Trainee at Cegal Norway"
                     />
                     <div className="w-full max-w-[1512px] md:px-32">
                         <CardGrid2x2
-                            heading="Projects"
-                            subheading="Subheading"
+                            heading="Featured Projects"
+                            subheading="A collection of my proudest work"
                             items={projectCards}
                         />
                         <PanelImage
