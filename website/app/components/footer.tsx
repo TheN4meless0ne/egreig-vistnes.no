@@ -13,7 +13,7 @@ const ICON_LINKS = [
 const NAV_LINKS = [
     { name: "Portfolio", destination: "/portfolio" },
     { name: "Resources", destination: "/resources" },
-    { name: "Documents", destination: "/documents" },
+    { name: "Documents", destination: "/docs" },
     { name: "Contact", destination: "/contact" },
 ];
 
