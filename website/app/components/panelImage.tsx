@@ -1,17 +1,18 @@
 import Image from "./parts/image";
 import { panelImageProps } from "../lib/filters";
 
-export default function PanelImage({ image, alt, heading, subheading, body1, body2 }: panelImageProps) {
+export default function PanelImage({ image, alt, heading, subheading, bodies }: panelImageProps) {
     return (
         <div className="flex flex-col lg:flex-row px-6 md:px-10 lg:px-16 py-8 gap-8 lg:gap-12">
             <Image alt={alt} src={image} width={337} height={582} className="w-2/3 mx-auto lg:w-[337px] lg:mx-0" />
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 justify-center">
                 <div>
                     <div className="text-2xl font-semibold">{heading}</div>
                     <div className="text-xl">{subheading}</div>
                 </div>
-                <div>{body1}</div>
-                <div>{body2}</div>
+                {bodies.map((body, i) => (
+		    <div key={i}>{body}</div>
+		))}
             </div>
         </div>
     );

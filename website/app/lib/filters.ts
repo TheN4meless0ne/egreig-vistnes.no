@@ -25,8 +25,7 @@ export type panelImageProps = {
     alt: string;
     heading: string;
     subheading: string;
-    body1: string;
-    body2: string;
+    bodies: React.ReactNode[];
 };
 
 export type cardProps = {

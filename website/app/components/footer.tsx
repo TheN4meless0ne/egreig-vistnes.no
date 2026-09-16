@@ -4,15 +4,16 @@ import Logo from "./logo";
 import { getTrademark } from "../lib/trademark";
 
 const ICON_LINKS = [
-    { icon: "LinkedIn", destination: "https://www.linkedin.com/in/egreig-vistnes/" },
-    { icon: "Github", destination: "https://github.com/TheN4meless0ne" },
-    { icon: "XLogo", destination: "https://x.com/egreigvistnes" },
-    { icon: "YouTube", destination: "https://www.youtube.com/@egreig-vistnes" },
+    { icon: "LinkedIn", destination: "https://linkedin.egreig-vistnes.no" },
+    { icon: "Github", destination: "https://github.egreig-vistnes.no" },
+    { icon: "XLogo", destination: "https://x.egreig-vistnes.no" },
+    { icon: "YouTube", destination: "https://youtube.egreig-vistnes.no" },
 ];
 
 const NAV_LINKS = [
     { name: "Portfolio", destination: "/portfolio" },
     { name: "Resources", destination: "/resources" },
+    { name: "Documents", destination: "/docs" },
     { name: "Contact", destination: "/contact" },
 ];
 

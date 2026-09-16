@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { baseUrl } from './sitemap'
+import { Analytics } from "@vercel/analytics/next"
 
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
@@ -46,6 +47,7 @@ export default function RootLayout({
         <footer className="w-full border-t py-6 flex-wrap">
           <div className="w-full max-w-[1512px] mx-auto"><Footer /></div>
         </footer>
+	<Analytics />
       </body>
     </html>
   );
