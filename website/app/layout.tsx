@@ -26,6 +26,12 @@ export const metadata: Metadata = {
     template: '%s | egreig-vistnes.no',
   },
   description: 'Website of Elias Greig-Vistnes',
+  icons: {
+    icon: [
+      { url: 'https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/logo/egvlogo_black.svg', type: 'image/svg+xml' },
+      { url: 'https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/logo/egvlogo_white.svg', type: 'image/svg+xml', media: '(prefers-color-scheme: dark)' },
+    ],
+  },
   openGraph: {
     title: 'egreig-vistnes.no',
     description: 'Website of Elias Greig-Vistnes',
