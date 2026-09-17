@@ -8,6 +8,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import NavBar from "./components/navbar";
 import Footer from "./components/footer";
+import ThemeFavicon from "./components/themeFavicon";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +28,10 @@ export const metadata: Metadata = {
   },
   description: 'Website of Elias Greig-Vistnes',
   icons: {
-    icon: [
-      { url: 'https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/logo/egvlogo_black.svg', type: 'image/svg+xml' },
-      { url: 'https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/logo/egvlogo_white.svg', type: 'image/svg+xml', media: '(prefers-color-scheme: dark)' },
-    ],
+    // Just the light-mode default here — browser support for `media` on
+    // favicon <link> tags is unreliable (e.g. Chrome), so the dark-mode
+    // swap is done client-side; see <ThemeFavicon /> in the body below.
+    icon: 'https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/logo/egvlogo_black.svg',
   },
   openGraph: {
     title: 'egreig-vistnes.no',
@@ -50,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen items-center`}>
+        <ThemeFavicon />
         <div className="w-full border-b items-center gap-6 px-4 py-4 sm:px-8 md:px-16 md:py-6"><NavBar /></div>
         <div className="w-full flex-1 flex flex-col">{children}</div>
         <footer className="w-full border-t py-6 flex-wrap">
