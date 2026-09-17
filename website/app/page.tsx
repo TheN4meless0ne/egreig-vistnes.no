@@ -1,14 +1,12 @@
+import { Suspense } from "react";
 import HeroImage from "./components/heroImage";
 import { CardGrid2x2 } from "./components/cards/grid2x2";
+import { CardGrid2x2Skeleton } from "./components/cards/grid2x2Skeleton";
 import PanelImage from "./components/panelImage";
 import { getFeaturedProjectsContent } from "./lib/content";
 import { formatDate } from "./lib/content/format";
 
-// Featured projects come from SharePoint via the backend; same reasoning as
-// docs/page.tsx — don't bake a stale listing into a static build.
-export const dynamic = "force-dynamic";
-
-export default async function Home() {
+async function FeaturedProjects() {
     const featuredProjects = await getFeaturedProjectsContent();
     const projectCards = featuredProjects.map((project) => ({
         title: project.title,
@@ -18,6 +16,16 @@ export default async function Home() {
         href: `/docs/${project.slug}`,
     }));
 
+    return (
+        <CardGrid2x2
+            heading="Featured Projects"
+            subheading="A collection of my proudest work"
+            items={projectCards}
+        />
+    );
+}
+
+export default function Home() {
     return (
         <div className="flex items-center justify-center">
             <main className="flex w-full flex-col items-center justify-between sm:items-start">
@@ -29,11 +37,9 @@ export default async function Home() {
                         subtitle="IT Trainee at Cegal Norway"
                     />
                     <div className="w-full max-w-[1512px] md:px-32">
-                        <CardGrid2x2
-                            heading="Featured Projects"
-                            subheading="A collection of my proudest work"
-                            items={projectCards}
-                        />
+                        <Suspense fallback={<CardGrid2x2Skeleton heading="Featured Projects" subheading="A collection of my proudest work" />}>
+                            <FeaturedProjects />
+                        </Suspense>
                         <PanelImage
                             image="https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/images/5F9D901C-3380-487B-9C43-21EE887BFA9A_1_105_c.jpeg"
                             alt="Portrait of Elias Greig-Vistnes"

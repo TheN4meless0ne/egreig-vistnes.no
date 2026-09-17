@@ -7,10 +7,9 @@ import type { ContentItem } from "../../lib/content/types";
  * Renders a ContentItem's detail-page preview according to its previewKind.
  * Local docs and SharePoint .md/.mdx files render through the same MDX
  * pipeline; PDFs and Office files (docx/xlsx/pptx/...) render via embedded
- * iframes against the file's (time-limited) download URL — these pages must
- * stay dynamically rendered (see `export const dynamic = 'force-dynamic'`
- * on the pages that use this) so that URL is never baked into a stale
- * static page.
+ * iframes against the file's (time-limited) download URL — the pages that
+ * use this fetch the item behind a <Suspense> boundary so that URL is
+ * never baked into the prerendered static shell.
  */
 export default function ContentPreview({ item }: { item: ContentItem }) {
     if ((item.previewKind === "mdx" || item.previewKind === "markdown") && item.content) {
