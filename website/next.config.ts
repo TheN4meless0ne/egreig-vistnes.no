@@ -15,6 +15,7 @@ const routePrefix = !isProd && proxyMode === "proxy" ? devPrefix : undefined;
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  partialPrefetching: true,
 
   turbopack: {
     root: __dirname,
