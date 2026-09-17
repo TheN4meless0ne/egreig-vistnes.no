@@ -4,9 +4,9 @@ import Link from '../components/parts/link'
 import DownloadIcon from '../components/parts/icon/download'
 import EyeIcon from '../components/parts/icon/eye'
 
-// SharePoint download links are time-limited; render this page fresh on
-// every request rather than baking a stale link into a static build.
-export const dynamic = 'force-dynamic'
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
 
 export const metadata = {
     title: 'Resources',

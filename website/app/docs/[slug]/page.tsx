@@ -3,9 +3,9 @@ import { getContentItemBySlug } from '../../lib/content'
 import { formatDate, formatBytes } from '../../lib/content/format'
 import ContentPreview from '../../components/content/preview'
 
-// Same reasoning as docs/page.tsx: SharePoint download URLs expire, so this
-// can't be statically generated once and served forever.
-export const dynamic = 'force-dynamic'
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
 
 export default async function DocumentPage({
     params,
