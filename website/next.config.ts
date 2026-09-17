@@ -14,6 +14,8 @@ const devPrefix = (() => {
 const routePrefix = !isProd && proxyMode === "proxy" ? devPrefix : undefined;
 
 const nextConfig: NextConfig = {
+  cacheComponents: true,
+
   turbopack: {
     root: __dirname,
   },
