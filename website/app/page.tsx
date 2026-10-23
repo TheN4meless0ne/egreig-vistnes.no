@@ -31,7 +31,7 @@ export default function Home() {
             <main className="flex w-full flex-col items-center justify-between sm:items-start">
                 <div className="w-full inline-flex flex-col justify-center items-center gap-8">
                     <HeroImage
-                        image="/sunset.png"
+                        image="https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/images/sunset.png"
                         alt="Sunset at Vistvik beach"
                         title="Elias Greig-Vistnes"
                         subtitle="IT Trainee at Cegal Norway"
