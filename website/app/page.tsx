@@ -41,7 +41,7 @@ export default function Home() {
                             <FeaturedProjects />
                         </Suspense>
                         <PanelImage
-                            image="https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/images/5F9D901C-3380-487B-9C43-21EE887BFA9A_1_105_c.jpeg"
+                            image="https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/images/portrait"
                             alt="Portrait of Elias Greig-Vistnes"
                             heading="Who is Elias Greig-Vistnes?"
                             subheading="A little bit about me."
