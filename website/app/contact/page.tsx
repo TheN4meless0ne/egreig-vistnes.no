@@ -25,7 +25,12 @@ export default function ContactPage() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form),
             });
-            const data = await res.json();
+            if (res.status === 429) {
+                throw new Error(
+                    `Too many messages in a short time. Please wait a few minutes and try again, or email me at ${CONTACT_EMAIL}.`
+                );
+            }
+            const data = await res.json().catch(() => ({}));
             if (!res.ok) throw new Error(data.error || "Something went wrong.");
             setStatus("sent");
         } catch (err) {
