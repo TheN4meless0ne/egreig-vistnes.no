@@ -1,3 +1,13 @@
 allowBuilds:
   sharp: true
   unrs-resolver: true
+
+# Security overrides for dev-only transitive deps of eslint-config-next.
+# Remove once eslint-config-next pulls patched versions itself.
+overrides:
+  # GHSA-g3hv-75wg-m249 (Dependabot #123). Only the 10.x line used by
+  # @typescript-eslint is bumped — the 3.x copy used by eslint-plugin-import
+  # can't take v11 (different export shape) and predates the vulnerable code.
+  "minimatch@>=10 <11.0.1": "^11.0.1"
+  # GHSA-mrhx-c7xc-m3w5 — via eslint-plugin-react-hooks.
+  "zod@<4.6.6": "^4.6.6"
