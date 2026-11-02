@@ -18,7 +18,15 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  // Only used for small labels (e.g. on /contact), so don't let it compete
+  // with the hero image and body font on every first load.
+  preload: false,
 });
+
+// Images and the favicon are served from Azure Blob on a separate origin, so
+// warm up that connection early — the homepage hero (the LCP element) can't
+// start downloading until DNS + TLS to this host are done.
+const ASSET_ORIGIN = "https://egvsa001.egreig-vistnes.no";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -50,6 +58,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href={ASSET_ORIGIN} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen items-center`}>
         <ThemeFavicon />
         <div className="w-full border-b items-center gap-6 px-4 py-4 sm:px-8 md:px-16 md:py-6"><NavBar /></div>
