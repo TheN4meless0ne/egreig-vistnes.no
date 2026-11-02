@@ -65,6 +65,8 @@ export type searchItem = {
     title: string;
     description: string;
     href: string;
+    /** What the result is, e.g. "Page", "Document", "Project" or "Resource". Shown next to the title. */
+    kind?: string;
     keywords: string[];
 };
 
