@@ -1,5 +1,5 @@
 import { getLocalDocuments } from "./localSource";
-import { getSharePointItems, loadSharePointTextContent } from "./sharepointSource";
+import { getSharePointItems, getSharePointItemsMetadataCached, loadSharePointTextContent } from "./sharepointSource";
 import type { ContentItem } from "./types";
 
 function sortByDateDesc(items: ContentItem[]): ContentItem[] {
@@ -26,9 +26,13 @@ export async function getProjectsContent(): Promise<ContentItem[]> {
     return sortByDateDesc(await getSharePointItems("Projects"));
 }
 
-/** Just the Projects flagged with the "Featured Project" SharePoint column, for the homepage. */
+/**
+ * Just the Projects flagged with the "Featured Project" SharePoint column, for
+ * the homepage. Served from the metadata cache so the homepage doesn't wait on
+ * the backend + Graph on every visit.
+ */
 export async function getFeaturedProjectsContent(): Promise<ContentItem[]> {
-    const projects = await getProjectsContent();
+    const projects = sortByDateDesc(await getSharePointItemsMetadataCached("Projects"));
     return projects.filter((item) => item.featured);
 }
 

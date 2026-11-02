@@ -4,6 +4,7 @@ export type imageProps = {
     width: number;
     height: number;
     className?: string;
+    loading?: "lazy" | "eager";
 }
 
 export type navButtonProps = {
