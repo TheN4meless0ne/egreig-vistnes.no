@@ -8,14 +8,7 @@ import { NavbarButton } from "./parts/button";
 import MenuIcon from "./parts/icon/menu";
 import CloseIcon from "./parts/icon/close";
 import SearchIcon from "./parts/icon/search";
-
-const NAV_LINKS = [
-    { name: "Home", destination: "/" },
-    { name: "Portfolio", destination: "/portfolio" },
-    { name: "Resources", destination: "/resources" },
-    { name: "Documents", destination: "/docs" },
-    { name: "Contact", destination: "/contact" },
-];
+import { NAV_LINKS } from "../lib/navigation";
 
 type Panel = "menu" | "search" | null;
 

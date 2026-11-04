@@ -142,8 +142,17 @@ export default function SearchBar({
                                         }}
                                         className="block rounded-lg px-3 py-2 transition-colors hover:bg-foreground/10 active:bg-foreground/20"
                                     >
-                                        <div className="text-sm font-medium">{item.title}</div>
-                                        <div className="text-xs opacity-80">{item.description}</div>
+                                        <div className="flex items-baseline justify-between gap-3">
+                                            <span className="text-sm font-medium">{item.title}</span>
+                                            {item.kind && (
+                                                <span className="shrink-0 text-[10px] uppercase tracking-widest font-mono opacity-60">
+                                                    {item.kind}
+                                                </span>
+                                            )}
+                                        </div>
+                                        {item.description && (
+                                            <div className="text-xs opacity-80 line-clamp-2">{item.description}</div>
+                                        )}
                                     </Link>
                                 </li>
                             ))}
