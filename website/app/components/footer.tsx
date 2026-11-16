@@ -18,7 +18,7 @@ const NAV_LINKS = [
 ];
 
 const RESOURCE_LINKS = [
-    { name: "Education", destination: "/" },
+    { name: "Privacy Statement", destination: "/privacy" },
     { name: "Work Experience", destination: "/" },
     { name: "Certifications", destination: "/" },
     { name: "Projects", destination: "/" },
