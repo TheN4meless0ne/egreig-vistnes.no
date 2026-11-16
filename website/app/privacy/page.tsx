@@ -32,7 +32,7 @@ const PROCESSING: Processing[] = [
         data: 'IP address, time, requested URL, browser and device information.',
         purpose: 'Delivering the site, keeping it secure and limiting abuse.',
         basis: `Legitimate interest in running a secure site, ${LEGITIMATE_INTEREST}.`,
-        kept: "A short period in the hosting provider's logs.",
+        kept: "One hour in the site's request logs. The hosting provider may keep its own security logs for longer.",
     },
     {
         when: 'Visitor statistics',
