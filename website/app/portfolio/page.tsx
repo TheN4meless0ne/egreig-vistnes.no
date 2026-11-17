@@ -6,7 +6,7 @@ export const metadata = {
 export default function PortfolioPage() {
     return (
         <main className="flex flex-col items-center justify-center gap-6 w-full py-6">
-            <h1 className="text-2xl font-semibold">🚧 This page is currently under development 🚧</h1>
+            <h1 className="text-2xl font-semibold px-6 text-center">🚧 This page is currently under development 🚧</h1>
         </main>
     );
 }

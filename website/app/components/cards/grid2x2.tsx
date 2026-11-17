@@ -17,7 +17,7 @@ export function CardGrid2x2({ heading, subheading, items }: cardGrid2x2Props) {
                     const card = <ProjectCard title={item.title} body={item.body} />;
                     const key = `${item.title}-${index}`;
                     return item.href ? (
-                        <Link key={key} href={item.href} className="block">
+                        <Link key={key} href={item.href} className="block -m-3 rounded-lg p-3 transition-colors hover:bg-foreground/10 active:bg-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40">
                             {card}
                         </Link>
                     ) : (
