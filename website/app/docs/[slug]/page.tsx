@@ -51,7 +51,7 @@ export default function DocumentPage({
     params: Promise<{ slug: string }>
 }) {
     return (
-        <main className="flex flex-col items-center justify-center gap-6 w-full py-6">
+        <main className="flex flex-col items-center justify-center gap-6 w-full px-6 py-6">
             <Suspense fallback={<DocumentSkeleton />}>
                 <Document params={params} />
             </Suspense>

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getLocalDocuments } from './lib/content/localSource'
 import { getSharePointItemsMetadataCached } from './lib/content/sharepointSource'
-import { NAV_LINKS } from './lib/navigation'
+import { SITE_PAGES } from './lib/navigation'
 
 // The canonical host. The other domains 308 here, so every URL in the sitemap
 // and in metadata (layout.tsx imports this for metadataBase and Open Graph)
@@ -16,7 +16,7 @@ const SHAREPOINT_LIBRARIES = [
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const pages = NAV_LINKS.map((link) => ({
+  const pages = SITE_PAGES.map((link) => ({
     url: `${baseUrl}${link.destination === '/' ? '' : link.destination}`,
   }))
 
