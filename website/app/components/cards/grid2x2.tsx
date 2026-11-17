@@ -4,12 +4,12 @@ import Link from "../parts/link";
 
 export function CardGrid2x2({ heading, subheading, items }: cardGrid2x2Props) {
     return (
-        <div className="w-full px-16 py-4">
+        <div className="w-full px-6 md:px-10 lg:px-16 py-4">
             <div className="inline-flex flex-col justify-start items-start gap-2">
                 <div className="justify-start text-2xl">{heading}</div>
                 <div className="justify-center text-xl">{subheading}</div>
             </div>
-            <div className="py-4 grid md:grid-cols-2 gap-16">
+            <div className="py-4 grid md:grid-cols-2 gap-8 md:gap-16">
                 {items.length === 0 && (
                     <p className="text-neutral-500">Nothing featured yet.</p>
                 )}

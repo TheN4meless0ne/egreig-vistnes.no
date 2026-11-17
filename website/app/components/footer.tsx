@@ -58,8 +58,8 @@ export default async function Footer() {
     const trademark = await getTrademark();
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 w-full items-start px-8 md:px-48">
-            <div className="grid grid-cols-2 md:grid-cols-1 ml-4 gap-x-4 md:gap-y-2 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 w-full items-start px-6 md:px-48">
+            <div className="grid grid-cols-2 md:grid-cols-1 md:ml-4 gap-x-4 md:gap-y-2 items-start">
                 <div className="grid gap-y-0 md:contents">
                     <div className="md:order-1">
                         <Link href="/"><Logo /></Link>

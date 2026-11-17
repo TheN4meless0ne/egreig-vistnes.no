@@ -87,7 +87,7 @@ function ResourcesListSkeleton() {
 
 export default function ResourcesPage() {
     return (
-        <main className="flex flex-col items-center justify-center gap-6 w-full py-6">
+        <main className="flex flex-col items-center justify-center gap-6 w-full px-6 py-6">
             <h1 className="text-2xl font-semibold">Resources</h1>
             <div className="flex flex-col gap-4 w-full max-w-2xl">
                 <Suspense fallback={<ResourcesListSkeleton />}>

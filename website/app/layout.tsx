@@ -63,7 +63,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen items-center`}>
         <ThemeFavicon />
-        <div className="w-full border-b items-center gap-6 px-4 py-4 sm:px-8 md:px-16 md:py-6"><NavBar /></div>
+        <div className="w-full border-b items-center gap-6 px-6 py-4 sm:px-8 md:px-16 md:py-6"><NavBar /></div>
         <div className="w-full flex-1 flex flex-col">{children}</div>
         <footer className="w-full border-t py-6 flex-wrap">
           <div className="w-full max-w-[1512px] mx-auto"><Footer /></div>

@@ -9,7 +9,7 @@ const srcSet = (base: string, ext: string) =>
 
 // Matches the layout classes on the <img>: 337px from lg up, otherwise 2/3 of
 // the viewport.
-const sizes = "(min-width: 1024px) 337px, 67vw";
+const sizes = "(min-width: 1024px) 337px, (min-width: 640px) 67vw, 100vw";
 
 export default function PanelImage({ image, alt, heading, subheading, bodies }: panelImageProps) {
     return (
@@ -26,7 +26,7 @@ export default function PanelImage({ image, alt, heading, subheading, bodies }: 
                     height={582}
                     loading="lazy"
                     decoding="async"
-                    className="w-2/3 h-auto mx-auto lg:w-[337px] lg:mx-0"
+                    className="-mx-6 w-[calc(100%+3rem)] max-w-none h-auto sm:mx-auto sm:w-2/3 sm:max-w-full lg:w-[337px] lg:mx-0 aspect-[4/5] object-cover object-top sm:aspect-auto"
                 />
             </picture>
             <div className="flex flex-col gap-6 justify-center">
