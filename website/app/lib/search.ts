@@ -2,7 +2,7 @@ import { getLocalDocuments } from "./content/localSource";
 import { getSharePointItemsMetadataCached } from "./content/sharepointSource";
 import type { ContentItem } from "./content/types";
 import type { searchItem } from "./filters";
-import { NAV_LINKS } from "./navigation";
+import { SITE_PAGES } from "./navigation";
 
 /**
  * Site search over everything the site actually serves: the top-level pages,
@@ -64,7 +64,7 @@ function fromSharePoint(item: ContentItem, kind: SearchKind, basePath: string): 
 }
 
 async function buildIndex(): Promise<IndexEntry[]> {
-    const pages: IndexEntry[] = NAV_LINKS.map((link) => ({
+    const pages: IndexEntry[] = SITE_PAGES.map((link) => ({
         title: link.name,
         description: link.description,
         href: link.destination,

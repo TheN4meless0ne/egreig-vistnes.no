@@ -65,6 +65,7 @@ export default async function Footer() {
                         <Link href="/"><Logo /></Link>
                     </div>
                     <p className="text-xs text-gray-400 md:order-3">{trademark}</p>
+                    <Link href="/privacy" className="text-xs text-gray-400 underline md:hidden">Privacy Statement</Link>
                 </div>
                 <div className="md:order-2 px-8 md:px-0">
                     <IconLinks />
