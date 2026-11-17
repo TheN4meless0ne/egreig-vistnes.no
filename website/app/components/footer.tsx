@@ -60,17 +60,17 @@ export default async function Footer() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 w-full items-start px-8 md:px-48">
             <div className="grid grid-cols-2 md:grid-cols-1 ml-4 gap-x-4 md:gap-y-2 items-start">
-                <div className="grid gap-y-2 md:contents">
+                <div className="grid gap-y-0 md:contents">
                     <div className="md:order-1">
                         <Link href="/"><Logo /></Link>
                     </div>
                     <p className="text-xs text-gray-400 md:order-3">{trademark}</p>
-                    <Link href="/privacy" className="text-xs text-gray-400 underline md:hidden">Privacy Statement</Link>
                 </div>
                 <div className="md:order-2 px-8 md:px-0">
                     <IconLinks />
                 </div>
             </div>
+            <Link href="/privacy" className="py-2 justify-self-center text-xs text-gray-400 underline md:hidden">Privacy Statement</Link>
             <div className="hidden md:grid grid-row-2 ml-4 gap-y-2 self-start">
                 <div>
                     <p className="font-bold">Explore</p>
