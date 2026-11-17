@@ -26,7 +26,7 @@ const RESOURCE_LINKS = [
 
 function IconLinks() {
     return (
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-2 max-w-50">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-2 gap-y-2 w-fit md:w-auto max-w-50">
             {ICON_LINKS.map((item) => (
                 <IconButton key={item.icon} destination={item.destination} icon={item.icon} />
             ))}
@@ -59,14 +59,14 @@ export default async function Footer() {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 w-full items-start px-6 md:px-48">
-            <div className="grid grid-cols-2 md:grid-cols-1 md:ml-4 gap-x-4 md:gap-y-2 items-start">
+            <div className="grid grid-cols-[auto_auto] justify-center gap-x-12 items-start md:grid-cols-1 md:justify-normal md:ml-4 md:gap-y-2">
                 <div className="grid gap-y-0 md:contents">
                     <div className="md:order-1">
                         <Link href="/"><Logo /></Link>
                     </div>
                     <p className="text-xs text-gray-400 md:order-3">{trademark}</p>
                 </div>
-                <div className="md:order-2 px-8 md:px-0">
+                <div className="md:order-2">
                     <IconLinks />
                 </div>
             </div>
