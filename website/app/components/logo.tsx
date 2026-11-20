@@ -4,7 +4,7 @@ import Ewas from "./parts/icon/rune/ewas";
 
 export default function Logo() {
     return (
-        <div data-property-1="Default" className="w-fit inline-flex justify-center items-center gap-1.5">
+        <div data-property-1="Default" aria-hidden="true" className="w-fit inline-flex justify-center items-center gap-1.5">
             <Ewas />
             <Gebo />
             <Urus />

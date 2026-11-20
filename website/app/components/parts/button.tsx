@@ -19,7 +19,7 @@ export function NavbarButton({ name, destination }: navButtonProps) {
     );
 }
 
-export function IconButton({ destination, icon }: iconButtonProps) {
+export function IconButton({ destination, icon, label }: iconButtonProps) {
     const iconComponents: { [key: string]: React.ReactNode } = {
         LinkedIn: <LinkedInIcon />,
         Github: <GithubIcon />,
@@ -31,12 +31,12 @@ export function IconButton({ destination, icon }: iconButtonProps) {
     const IconComponent = iconComponents[icon];
 
     if (!IconComponent) {
-        return null; // Return null if the icon is not found
+        return null;
     }
 
     return (
-        <Link href={destination}>
-            {IconComponent}
+        <Link href={destination} ariaLabel={label}>
+            <span aria-hidden="true">{IconComponent}</span>
         </Link>
     );
 }
