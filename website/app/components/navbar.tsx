@@ -97,7 +97,7 @@ export default function NavBar() {
                 </button>
 
                 <div className="order-2 flex flex-1 justify-center md:flex-none md:justify-start">
-                    <Link href="/">
+                    <Link href="/" ariaLabel="Home">
                         <Logo />
                     </Link>
                 </div>

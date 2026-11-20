@@ -15,6 +15,7 @@ export type navButtonProps = {
 export type iconButtonProps = {
     destination: string;
     icon: string;
+    label: string;
 };
 
 export type iconSizeProp = {
@@ -85,4 +86,6 @@ export type linkProps = {
     /** Set false on links that are unlikely to be followed, to skip prefetching. */
     prefetch?: boolean;
     onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+    /** Accessible name for links whose content is only an icon or image. */
+    ariaLabel?: string;
 };

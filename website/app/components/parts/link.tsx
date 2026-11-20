@@ -13,13 +13,13 @@ export function resolveHref(href: string) {
     return isExternal(href) ? href : `${routePrefix}${href}`;
 }
 
-export default function Link({ href, className, children, prefetch, onClick }: linkProps) {
+export default function Link({ href, className, children, prefetch, onClick, ariaLabel }: linkProps) {
     if (isExternal(href)) {
-        return <a href={href} className={className} onClick={onClick}>{children}</a>;
+        return <a href={href} className={className} onClick={onClick} aria-label={ariaLabel}>{children}</a>;
     }
 
     return (
-        <NextLink href={resolveHref(href)} className={className} prefetch={prefetch} onClick={onClick}>
+        <NextLink href={resolveHref(href)} className={className} prefetch={prefetch} onClick={onClick} aria-label={ariaLabel}>
             {children}
         </NextLink>
     );
