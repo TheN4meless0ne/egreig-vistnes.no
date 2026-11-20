@@ -25,21 +25,35 @@ async function FeaturedProjects() {
     );
 }
 
+function Section({ children, muted = false }: {children: React.ReactNode; muted?: boolean }) {
+    return (
+        <section className={`w-full ${muted ? "bg-gray-50 dark:bg-gray-900" : ""}`}>
+            <div className="mx-auto w-full max-w-[1512px] md:px-32">
+                {children}
+            </div>
+        </section>
+    );
+}
+
 export default function Home() {
     return (
         <div className="flex items-center justify-center">
             <main className="flex w-full flex-col items-center justify-between sm:items-start">
-                <div className="w-full inline-flex flex-col justify-center items-center gap-8">
+                <div className="w-full inline-flex flex-col justify-center items-center">
                     <HeroImage
                         image="https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/images/sunset"
                         alt="Sunset at Vistvik beach"
                         title="Elias Greig-Vistnes"
                         subtitle="IT Trainee at Cegal Norway"
                     />
-                    <div className="w-full max-w-[1512px] md:px-32">
+                    
+                    <Section>
                         <Suspense fallback={<CardGrid2x2Skeleton heading="Featured Projects" subheading="A collection of my proudest work" />}>
                             <FeaturedProjects />
                         </Suspense>
+                    </Section>
+
+                    <Section muted>
                         <PanelImage
                             image="https://egvsa001.egreig-vistnes.no/egvsacontainer1/egreig-vistnes/images/portrait"
                             alt="Portrait of Elias Greig-Vistnes"
@@ -47,7 +61,7 @@ export default function Home() {
                             subheading="A little bit about me."
                             bodies={["Hi, I'm Elias — an IT Trainee at Cegal, working as 3. line support alongside Cegal's IT engineers. Since starting my apprenticeship I've picked up MS-900, AZ-900, and ITIL 4 Foundation, and I'm currently working towards AZ-104.", "Alongside that, I've been involved with Ehra E-sport, a local e-sports club, since early 2025. I started out as a substitute coach, working the club's stands at events like Sommer i Folkehallene in Sørmarka and Randaberg, before moving into my current role as Gameserver Administrator. I run the club's gameserver through Pterodactyl, which lets the head coaches spin up their own dedicated servers for games like Counter-Strike and Minecraft, and I've secured it with SSO against the club's Microsoft tenant through a Cloudflare Zero Trust tunnel.", "This site is one of my own projects as well, built with Next.js and React. I tend to work things out on my own rather than escalate early — nobody asked for the SSO and Cloudflare setup on the Ehra server, I just saw the gap and built it, and that's fairly typical of how most of what I make ends up happening.", "Outside of work, I play for Better E-sport Reavers in the 3. division of the Norwegian VALORANT Komplettliga."]}
                         />
-                    </div>
+                    </Section>
                 </div>
             </main>
         </div>
