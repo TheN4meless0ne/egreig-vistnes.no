@@ -64,7 +64,7 @@ export default async function Footer() {
                     <div className="md:order-1">
                         <Link href="/"><Logo /></Link>
                     </div>
-                    <p className="text-xs text-gray-500 md:order-3">{trademark}</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 md:order-3">{trademark}</p>
                 </div>
                 <div className="md:order-2">
                     <IconLinks />
