@@ -19,9 +19,6 @@ const NAV_LINKS = [
 
 const RESOURCE_LINKS = [
     { name: "Privacy Statement", destination: "/privacy" },
-    { name: "Work Experience", destination: "/" },
-    { name: "Certifications", destination: "/" },
-    { name: "Projects", destination: "/" },
 ];
 
 function IconLinks() {
@@ -38,7 +35,7 @@ function ExploreLinks() {
     return (
         <div className="grid grid-row-auto gap-y-2">
             {NAV_LINKS.map((item) => (
-                <FooterLink key={item.destination} name={item.name} destination={item.destination} />
+                <FooterLink key={item.name} name={item.name} destination={item.destination} />
             ))}
         </div>
     );
@@ -48,7 +45,7 @@ function ResourcesLinks() {
     return (
         <div className="grid grid-row-auto gap-y-2">
             {RESOURCE_LINKS.map((item) => (
-                <FooterLink key={item.destination} name={item.name} destination={item.destination} />
+                <FooterLink key={item.name} name={item.name} destination={item.destination} />
             ))}
         </div>
     );
